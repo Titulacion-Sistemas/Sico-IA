@@ -1,0 +1,84 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es-ec" ng-app="sico_ia">
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title id="title">
+            {% block title %}
+                P&#225;gina Sin T&#237;tulo
+            {% endblock %}
+        </title>
+
+        <meta name="generator" content="Bootply" />
+
+        <!-- CSS de Bootstrap -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+{#        <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet" media="all">#}
+
+        <!-- CSS de JQuery-UI -->
+        <link href="{% static 'css/jquery-ui.min.css' %}" rel="stylesheet" media="all">
+        <link href="{% static 'css/jquery-ui.structure.min.css' %}" rel="stylesheet" media="all">
+        <link href="{% static 'css/jquery-ui.theme.min.css' %}" rel="stylesheet" media="all">
+
+
+        <!-- Favicon-->
+{#        <link id="favicon" rel="icon" type="image/x-icon" sizes="16x16" href="{% static 'favicon/favicon.ico' %}">#}
+{#        <link id="favicon2x" rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon.png' %}">#}
+{#        <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.png' %}">#}
+
+        <!-- JS Librería jQuery -->
+        <script src="{% static 'js/jquery-1.11.1.js' %}"></script>
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+
+        <!-- JS Librería Angular -->
+        <script src="{% static 'js/angular.min.js' %}"></script>
+
+        <!-- JS de Bootstrap -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+{#        <script src="{% static 'js/bootstrap-hover-dropdown.min.js' %}"></script>#}
+{#        <script src="{% static 'js/jhonsson.js' %}"></script>#}
+
+        <!-- JS Librería jQueryDajax respuestas asincronas -->
+{#        <script src="{% static 'js/jquery.ajax.js' %}"></script>#}
+{#        <script src="{% static 'js/jquery.ajax-plugin.js' %}"></script>#}
+{#        <script src="{% static 'js/jquery.dajax.core.js' %}"></script>#}
+
+        <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        {% block jquery %}
+
+        {% endblock %}
+
+    </head>
+
+    <body>
+
+        {% block body %}
+
+        {% endblock %}
+
+        <footer id="footer">
+            <div class="container">
+                <p>Sico-IA - V 1.0.0 - 2015.<br>
+                    <a href="{% url 'acercade' %}" class="text-info">Acerca de</a></p>
+                {% block footer %}
+                {% endblock %}
+            </div>
+        </footer>
+        {% block jqueryfooter %}
+
+        {% endblock %}
+
+    </body>
+</html>
