@@ -82,3 +82,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# ADD
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TC
+
+TEMPLATE_CONTEXT_PROCESSORS = TC + (
+    'django.core.context_processors.request',
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+# Redirect when login is correct.
+LOGIN_REDIRECT_URL = "/home"
+
+# Redirect when login is not correct.
+LOGIN_URL = '/'
+
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\', '/'),
+)
