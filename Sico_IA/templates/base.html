@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es-ec" ng-app="sico_ia">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es-ec" data-ng-app="sico_ia">
     <head>
 
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -28,9 +28,9 @@
 
 
         <!-- Favicon-->
-{#        <link id="favicon" rel="icon" type="image/x-icon" sizes="16x16" href="{% static 'favicon/favicon.ico' %}">#}
-{#        <link id="favicon2x" rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon.png' %}">#}
-{#        <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.png' %}">#}
+        <link id="favicon" rel="icon" type="image/x-icon" sizes="16x16" href="{% static 'favicon/favicon.ico' %}">
+        <link id="favicon2x" rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon.png' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
 
         <!-- JS Librería jQuery -->
         <script src="{% static 'js/jquery-1.11.1.js' %}"></script>
@@ -41,13 +41,7 @@
 
         <!-- JS de Bootstrap -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
-{#        <script src="{% static 'js/bootstrap-hover-dropdown.min.js' %}"></script>#}
-{#        <script src="{% static 'js/jhonsson.js' %}"></script>#}
 
-        <!-- JS Librería jQueryDajax respuestas asincronas -->
-{#        <script src="{% static 'js/jquery.ajax.js' %}"></script>#}
-{#        <script src="{% static 'js/jquery.ajax-plugin.js' %}"></script>#}
-{#        <script src="{% static 'js/jquery.dajax.core.js' %}"></script>#}
 
         <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
         <!--[if lt IE 9]>
@@ -68,16 +62,12 @@
 
         {% endblock %}
 
-        <footer id="footer">
-            <div class="container">
-                <p>Sico-IA - V 1.0.0 - 2015.<br>
-                    <a href="{% url 'acercade' %}" class="text-info">Acerca de</a></p>
-                {% block footer %}
-                {% endblock %}
-            </div>
-        </footer>
-        {% block jqueryfooter %}
 
+        {% block jqueryAngular %}
+            <script>
+                var cs = angular.module("sico_ia", []);
+                cs.controller('home', ['$scope', function($scope){}]);
+            </script>
         {% endblock %}
 
     </body>
