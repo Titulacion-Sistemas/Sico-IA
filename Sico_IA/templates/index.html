@@ -7,8 +7,12 @@
 
     {% block body %}
 
+
+
         <!--login modal-->
-        <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+        <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true"
+
+                >
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -43,6 +47,33 @@
             </div>
         </div>
 
+    {% endblock %}
+
+    {% block jqueryAngular %}
+        <script>
+            var cs = angular.module("sico_ia", ['ngRoute']);
+
+            cs.config( ['$routeProvider',
+                function($routeProvider) {
+                    $routeProvider.when('/animales/ave1', {
+                        templateUrl: 'plantillas/ave1.html'
+                    }).
+                    when('/animales/ave2', {
+                        templateUrl: 'plantillas/ave2.html'
+                    }).
+                    when('/animales/ave3', {
+                        templateUrl: 'plantillas/ave3.html'
+                    }).
+                    otherwise({
+                        redirectTo: '/home',
+                        templateUrl: 'plantillas/inicio.html'
+                    });
+              }]);
+
+            cs.controller('home', ['$scope', function($scope){
+
+            }]);
+        </script>
     {% endblock %}
 
 

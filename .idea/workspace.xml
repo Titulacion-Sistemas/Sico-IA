@@ -4,8 +4,8 @@
     <list default="true" id="533e9d67-9486-4841-9f22-768583debd8a" name="Default" comment="" />
     <ignored path="Sico_IA.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1427310201700" ignored="false" />
-    <file path="/base.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1427311898787" ignored="false" />
+    <file path="/index.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1427411039815" ignored="false" />
+    <file path="/base.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1427409205943" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="26" selection-start="2264" selection-end="2264" vertical-scroll-proportion="-0.65384614">
+            <state line="68" column="22" selection-start="2618" selection-end="2618" vertical-scroll-proportion="-10.076923">
               <folding />
             </state>
           </provider>
@@ -64,7 +64,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="38" selection-start="275" selection-end="275" vertical-scroll-proportion="0.51582277">
+            <state line="57" column="42" selection-start="1981" selection-end="1994" vertical-scroll-proportion="0.29962546">
               <folding />
             </state>
           </provider>
@@ -85,12 +85,12 @@
         <option value="$PROJECT_DIR$/ingreso/views.py" />
         <option value="$PROJECT_DIR$/../PythonTitulacion-EV/Lib/site-packages/suit/static/suit/bootstrap/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/static/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/Sico_IA/templates/index.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="C:/Users/Andrea Loaiza/AppData/Local/Temp/index.html" />
-        <option value="$PROJECT_DIR$/Sico_IA/templates/base.html" />
         <option value="$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/app.css" />
         <option value="$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/index.html" />
+        <option value="$PROJECT_DIR$/Sico_IA/templates/base.html" />
+        <option value="$PROJECT_DIR$/Sico_IA/templates/index.html" />
       </list>
     </option>
   </component>
@@ -244,11 +244,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Datos\Documents\GitHub\Sico-IA\static\js" />
       <recent name="D:\Datos\Documents\GitHub\Sico-IA\static\favicon" />
       <recent name="E:\Datos\Documents\GitHub\Sico_IA\static\css" />
       <recent name="E:\Datos\Documents\GitHub\Sico_IA\static\js" />
       <recent name="E:\Datos\Documents\GitHub\Sico_IA\static" />
-      <recent name="E:\Datos\Documents\GitHub\Sico_IA\Sico_IA\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.Sico_IA">
@@ -336,29 +336,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Sico_IA" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -380,6 +357,29 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Sico_IA" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -469,7 +469,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25833333" sideWeight="0.67064846" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2621212" sideWeight="0.67064846" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -548,112 +548,88 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../PythonTitulacion-EV/Lib/site-packages/suit/static/suit/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4762" column="15" selection-start="115177" selection-end="115177" vertical-scroll-proportion="0.57344633">
-          <folding />
-        </state>
+        <state line="4762" column="15" selection-start="115177" selection-end="115177" vertical-scroll-proportion="0.57344633" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="84191" selection-start="84339" selection-end="84339" vertical-scroll-proportion="0.2881356">
-          <folding />
-        </state>
+        <state line="6" column="84191" selection-start="84339" selection-end="84339" vertical-scroll-proportion="0.2881356" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../PythonTitulacion-EV/Lib/site-packages/suit/static/suit/bootstrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="835" column="0" selection-start="106467" selection-end="106467" vertical-scroll-proportion="0.519774">
-          <folding />
-        </state>
+        <state line="835" column="0" selection-start="106467" selection-end="106467" vertical-scroll-proportion="0.519774" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="1" selection-start="1127" selection-end="1127" vertical-scroll-proportion="2.5749319">
+        <state line="65" column="1" selection-start="1127" selection-end="1127" vertical-scroll-proportion="2.5749319" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/lib/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.8728814" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/templates/home_tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/templates/include_tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/templates/actions_tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/lib/font-awesome/css/font-awesome.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-24.291553" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="75" selection-start="868" selection-end="874" vertical-scroll-proportion="4.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="216" column="18" selection-start="3846" selection-end="3846" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="58" selection-start="2651" selection-end="2661" vertical-scroll-proportion="0.49707603" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/jhonsson.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Users/Andrea Loaiza/AppData/Local/Temp/styles.css">
+    <entry file="file://$PROJECT_DIR$/static/js/angular-messages.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="1" selection-start="0" selection-end="1089" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="26" selection-start="2264" selection-end="2264" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/lib/reset.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.8728814">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/templates/home_tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/templates/include_tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/templates/actions_tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/lib/font-awesome/css/font-awesome.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-24.291553">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Users/Andrea Loaiza/AppData/Local/Temp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="478" selection-end="478" vertical-scroll-proportion="-1.3076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="75" selection-start="868" selection-end="874" vertical-scroll-proportion="4.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="18" selection-start="3846" selection-end="3846" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/AngularJS-Animation-Article-master/AngularJS-Animation-Article-master/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="58" selection-start="2651" selection-end="2661" vertical-scroll-proportion="0.49707603">
+        <state line="68" column="22" selection-start="2618" selection-end="2618" vertical-scroll-proportion="-10.076923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sico_IA/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="38" selection-start="275" selection-end="275" vertical-scroll-proportion="0.51582277">
+        <state line="57" column="42" selection-start="1981" selection-end="1994" vertical-scroll-proportion="0.29962546">
           <folding />
         </state>
       </provider>

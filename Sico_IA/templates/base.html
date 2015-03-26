@@ -19,7 +19,10 @@
 
         <!-- CSS de Bootstrap -->
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="all">
-{#        <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet" media="all">#}
+        <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet" media="all">
+
+        <!-- CSS Personal -->
+        <link href="{% static 'css/jhonsson.css' %}" rel="stylesheet" media="all">
 
         <!-- CSS de JQuery-UI -->
         <link href="{% static 'css/jquery-ui.min.css' %}" rel="stylesheet" media="all">
@@ -38,6 +41,9 @@
 
         <!-- JS Librería Angular -->
         <script src="{% static 'js/angular.min.js' %}"></script>
+        <script src="{% static 'js/angular-route.min.js' %}"></script>
+        <script src="{% static 'js/angular-animate.min.js' %}"></script>
+
 
         <!-- JS de Bootstrap -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -66,7 +72,6 @@
         {% block jqueryAngular %}
             <script>
                 var cs = angular.module("sico_ia", []);
-                cs.controller('home', ['$scope', function($scope){}]);
             </script>
         {% endblock %}
 
