@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^$', 'ingreso.views.index', name='index'),
 
     url(r'^login/$', 'ingreso.views.login', name='login'),
+    url(r'^acceso/$', 'ingreso.views.acceso', name='acceso'),
 )

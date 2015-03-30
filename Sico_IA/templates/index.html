@@ -8,23 +8,40 @@
     {% block body %}
 
         <div
-                data-ng-view
-                data-ng-animate="{enter: 'view-enter', leave: 'view-leave'}"
-        ></div>
+                data-ng-view class="view"
+        >
+
+        </div>
 
     {% endblock %}
 
     {% block jqueryAngular %}
         <script>
-            var cs = angular.module("sico_ia", ['ngRoute']);
+            angular.module("sico_ia", ['ngRoute', 'ngAnimate'])
+                    //http://www.aprendiendoando.com/angularjs-clase-13-crear-animaciones
 
-            cs.config( ['$routeProvider',
+            .controller('AppCtrl', ['$scope', function($scope) {
+                $scope.topScope = $scope;
+
+            }])
+
+            .controller('acceso', ['$scope', function($scope){
+
+                $scope.login=function(){
+
+                    window.location.assign('#/acceso');
+
+                }
+            }])
+
+            .config( ['$routeProvider',
                 function($routeProvider) {
                     $routeProvider.when('/', {
+                        controller: 'acceso',
                         templateUrl: '{% url 'login' %}'
                     }).
-                    when('/animales/ave2', {
-                        templateUrl: 'plantillas/ave2.html'
+                    when('/acceso', {
+                        templateUrl: '{% url 'acceso' %}'
                     }).
                     when('/animales/ave3', {
                         templateUrl: 'plantillas/ave3.html'
@@ -33,11 +50,7 @@
                         redirectTo: '/home',
                         templateUrl: 'plantillas/inicio.html'
                     });
-              }]);
-
-            cs.controller('home', ['$scope', function($scope){
-
-            }]);
+              }])
         </script>
     {% endblock %}
 
