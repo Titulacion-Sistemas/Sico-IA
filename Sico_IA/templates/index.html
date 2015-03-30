@@ -7,45 +7,10 @@
 
     {% block body %}
 
-
-
-        <!--login modal-->
-        <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true"
-
-                >
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="text-center">Sico - I.A.</h1>
-                </div>
-                <div class="modal-body">
-                    <form class="form col-md-12 center-block">
-                        <div class="form-group">
-                            <input type="text" class="form-control input-lg" placeholder="Usuario">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control input-lg" placeholder="Contraseña">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-lg btn-block">Acceso</button>
-                        </div>
-                        <div class="form-group">
-                            <span class="pull-right">
-                                <a href="#">Acerca de Sico - I.A.</a>
-                            </span>
-                            <span>
-                                <a href="#">¿Necesita ayuda?</a>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <div class="col-md-12">
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
+        <div
+                data-ng-view
+                data-ng-animate="{enter: 'view-enter', leave: 'view-leave'}"
+        ></div>
 
     {% endblock %}
 
@@ -55,8 +20,8 @@
 
             cs.config( ['$routeProvider',
                 function($routeProvider) {
-                    $routeProvider.when('/animales/ave1', {
-                        templateUrl: 'plantillas/ave1.html'
+                    $routeProvider.when('/', {
+                        templateUrl: '{% url 'login' %}'
                     }).
                     when('/animales/ave2', {
                         templateUrl: 'plantillas/ave2.html'

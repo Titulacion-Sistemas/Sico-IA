@@ -18,4 +18,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'ingreso.views.index', name='index'),
+
+    url(r'^login/$', 'ingreso.views.login', name='login'),
 )
