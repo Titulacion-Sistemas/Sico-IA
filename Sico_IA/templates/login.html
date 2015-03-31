@@ -6,16 +6,33 @@
             <h1 class="text-center">Sico - I.A.</h1>
         </div>
         <div class="modal-body">
-            <form class="form col-md-12 center-block">
+            <form class="form col-md-12 center-block" name="forma">
                 <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="Usuario">
+                    <input type="text" class="form-control input-lg" placeholder="Usuario" name="usuario" data-ng-model="usuario" required="true">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control input-lg" placeholder="Contraseña">
+                    <input type="password" class="form-control input-lg" placeholder="Contraseña" name="clave" data-ng-model="clave" required="true">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-lg btn-block" data-ng-click="login()" onclick="return false;">Acceso</button>
                 </div>
+
+                <div class="form-group alert alert-danger panel-danger text-center animate-show"
+                     data-ng-show="(forma.usuario.$dirty && forma.usuario.$invalid) || (forma.clave.$dirty && forma.clave.$invalid)" >
+                    <p class="animate-show"
+                       data-ng-show="forma.usuario.$dirty && forma.usuario.$invalid && forma.usuario.$error.required">
+                        <span class="text-danger">
+                            Campo Usuario -> Obligatorio
+                        </span>
+                    </p>
+                    <p class="animate-show"
+                       data-ng-show="forma.clave.$dirty && forma.clave.$invalid && forma.clave.$error.required">
+                        <span class="text-danger">
+                            Campo Contraseña -> Obligatorio
+                        </span>
+                    </p>
+                </div>
+
                 <div class="form-group">
                     <span class="pull-right">
                         <a href="#">Acerca de Sico - I.A.</a>
@@ -25,9 +42,11 @@
                     </span>
                 </div>
             </form>
+
         </div>
         <div class="modal-footer">
             <div class="col-md-12">
+
             </div>
         </div>
     </div>

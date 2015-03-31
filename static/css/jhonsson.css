@@ -1,14 +1,14 @@
-
+/*para view */
 .view {
-  -webkit-transition: ease-in-out 0.5s;
-  -moz-transition: ease-in-out 0.5s;
-  -o-transition: ease-in-out 0.5s;
-  transition: ease-in-out 0.5s;
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
 }
 
 .view.ng-enter {
   opacity:0;
-  left:100px;
+  left:100%;
   width:100%;
   position:absolute;
 }
@@ -24,6 +24,74 @@
   opacity:0;
 }
 .view.ng-view-leave-active {
-  left:-100px;
+  left:-100%;
   opacity:0;
+}
+
+
+/*para repeat*/
+.toggle {
+    -webkit-transition: linear 1s;
+    -moz-transition: linear 1s;
+    -ms-transition: linear 1s;
+    -o-transition: linear 1s;
+    transition: linear 1s;
+}
+
+.toggle.ng-enter {
+    opacity: 0;
+}
+
+.toggle.ng-enter-active {
+    opacity: 1;
+}
+
+.toggle.ng-leave {
+    opacity: 1;
+}
+
+.toggle.ng-leave-active {
+    opacity: 0;
+}
+
+/*para show*/
+
+.fade-hide, .fade-show {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.fade-hide {
+  opacity:1;
+}
+.fade-hide.fade-hide-active {
+  opacity:0;
+}
+
+.fade-show {
+  opacity:0;
+}
+.fade-show.fade-show-active {
+  opacity:1;
+}
+
+
+
+
+.animate-show {
+  opacity: 1;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
 }
