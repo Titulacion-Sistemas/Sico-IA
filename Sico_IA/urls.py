@@ -21,4 +21,5 @@ urlpatterns = patterns('',
 
     url(r'^login/$', 'ingreso.views.login', name='login'),
     url(r'^acceso/$', 'ingreso.views.acceso', name='acceso'),
+    url(r'^home/$', 'ingreso.views.home', name='home'),
 )

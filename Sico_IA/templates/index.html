@@ -27,9 +27,15 @@
 
             .controller('acceso', ['$scope', function($scope){
 
-                $scope.login=function(){
 
-                    window.location.assign('#/acceso');
+                $scope.login=function(){
+                    if($scope.usuario  && $scope.clave){
+                        window.location.assign('#/acceso');
+                    }
+                    else{
+
+                    }
+
 
                 }
             }])

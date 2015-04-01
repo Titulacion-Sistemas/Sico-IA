@@ -8,23 +8,14 @@
 
 .view.ng-enter {
   opacity:0;
-  left:100%;
-  width:100%;
-  position:absolute;
 }
 .view.ng-enter-active {
-  left:0;
   opacity:1;
 }
-
 .view.ng-leave {
-  position:absolute;
-  left:0;
-  width:100%;
   opacity:0;
 }
 .view.ng-view-leave-active {
-  left:-100%;
   opacity:0;
 }
 
@@ -56,30 +47,6 @@
 
 /*para show*/
 
-.fade-hide, .fade-show {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-}
-
-.fade-hide {
-  opacity:1;
-}
-.fade-hide.fade-hide-active {
-  opacity:0;
-}
-
-.fade-show {
-  opacity:0;
-}
-.fade-show.fade-show-active {
-  opacity:1;
-}
-
-
-
-
 .animate-show {
   opacity: 1;
 }
@@ -87,6 +54,9 @@
 .animate-show.ng-hide-add.ng-hide-add-active,
 .animate-show.ng-hide-remove.ng-hide-remove-active {
   -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -ms-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
   transition: all linear 0.5s;
 }
 
@@ -95,3 +65,4 @@
   opacity: 0;
   padding: 0 10px;
 }
+
