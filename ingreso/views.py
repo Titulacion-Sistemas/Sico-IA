@@ -22,14 +22,16 @@ def home(request):
     return render_to_response('home.html', {}, context_instance=RequestContext(request))
 
 def integracion(u, c):
-    conn = None
     user = usuario(nombre=str(u).strip())
+    conn = manejadorDeConexion()
     while True:
-        conn = manejadorDeConexion()
         user.sesion = str(conn.getAvailableConnection())
-        if not usuario.objects.filter(sesion=user.sesion):
+        if len(list(usuario.objects.filter(sesion=user.sesion))) == 0:
             user.save()
             break
+    conn.openProgram()
+    conn.connList.Refresh()
+
     return conn.openSession(connectionName=user.sesion, usuario=user.nombre, contrasenia=c)
 
 def acceso(request):

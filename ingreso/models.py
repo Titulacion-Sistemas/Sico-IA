@@ -6,7 +6,7 @@ from django.db import models
 
 class usuario(models.Model):
     nombre = models.CharField(max_length=10, verbose_name='Usuario de Sico', primary_key=True)
-    sesion = models.CharField(max_length=1, verbose_name='Nombre de Sesion')
+    sesion = models.CharField(max_length=1, verbose_name='Nombre de Sesion', default='')
 
     def __unicode__(self):
         return '%s - %s' % (self.nombre, self.sesion)

@@ -67,7 +67,10 @@
 }
 
 
-
+/*mayusculas*/
+.may{
+    text-transform: uppercase;
+}
 
 
 

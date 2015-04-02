@@ -24,7 +24,7 @@ Language=Latin-America(Spanish)
 IBMDefaultKeyboard=N
 DefaultKeyboard=C:\Users\Andreita\AppData\Roaming\IBM\Client Access\Emulator\private\AS400.KMP
 [LastExitView]
-A=3 558 0 816 592 3 10 18 400 0 IBM3270— 284
+A=3 314 67 816 542 3 10 16 400 0 IBM3270— 284
 [Window]
 ViewFlags=CE00
 RuleLinePos=0 0
