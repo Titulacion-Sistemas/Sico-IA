@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^$', 'ingreso.views.index', name='index'),
 
     url(r'^login/$', 'ingreso.views.login', name='login'),
+    url(r'^espera/$', 'ingreso.views.espera', name='espera'),
     url(r'^acceso/$', 'ingreso.views.acceso', name='acceso'),
+    url(r'^error/$', 'ingreso.views.error', name='error'),
     url(r'^home/$', 'ingreso.views.home', name='home'),
 )

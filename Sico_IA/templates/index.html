@@ -25,12 +25,35 @@
 
             }])
 
-            .controller('acceso', ['$scope', function($scope){
+            .controller('login', ['$scope', function($scope){
 
 
                 $scope.login=function(){
                     if($scope.usuario  && $scope.clave){
-                        window.location.assign('#/acceso');
+
+                        var parametros = {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            "usuario" : $scope.usuario,
+                            "clave" : $scope.clave
+                        };
+                        $.ajax({
+                            data:  parametros,
+                            url:   '{% url 'acceso' %}',
+                            type:  'post',
+                            datatype: 'json' ,
+                            async: true,
+                            beforeSend: function () {
+                                window.location.assign('#/espera');
+                            },
+                            success:  function (response) {
+                                window.location.assign(response.resultado);
+                            },
+                            error: function(){
+
+                            }
+
+                        });
+
                     }
                     else{
 
@@ -43,18 +66,24 @@
             .config( ['$routeProvider',
                 function($routeProvider) {
                     $routeProvider.when('/', {
-                        controller: 'acceso',
+                        controller: 'login',
                         templateUrl: '{% url 'login' %}'
                     }).
-                    when('/acceso', {
-                        templateUrl: '{% url 'acceso' %}'
+                    when('/espera', {
+                        templateUrl: '{% url 'espera' %}'
                     }).
-                    when('/animales/ave3', {
-                        templateUrl: 'plantillas/ave3.html'
+                    when('/error', {
+                        controller: 'error',
+                        templateUrl: '{% url 'error' %}'
+                    }).
+                    when('/home', {
+                        controller: 'home',
+                        templateUrl: '{% url 'home' %}'
                     }).
                     otherwise({
                         redirectTo: '/home',
-                        templateUrl: 'plantillas/inicio.html'
+                        controller: 'home',
+                        templateUrl: '{% url 'home' %}'
                     });
               }])
         </script>

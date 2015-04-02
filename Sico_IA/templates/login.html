@@ -15,7 +15,8 @@
                             placeholder="Usuario"
                             name="usuario"
                             data-ng-model="usuario"
-                            required="true"
+                            required
+                            autofocus
                             >
                 </div>
                 <div class="form-group" data-ng-class="{'has-error' : forma.clave.$dirty && forma.clave.$invalid && forma.clave.$error.required,
@@ -26,7 +27,7 @@
                             placeholder="Contraseña"
                             name="clave"
                             data-ng-model="clave"
-                            required="true"
+                            required
                             >
                 </div>
                 <div class="form-group" >
