@@ -10,7 +10,10 @@ from ingreso.models import usuario
 
 
 def index(request):
-    return render_to_response('index.html', {}, context_instance=RequestContext(request))
+    if request.session['usuario']:
+        request.session['uri'] = '#/home'
+    uri = request.session['uri']
+    return render_to_response('index.html', {'uri': uri}, context_instance=RequestContext(request))
 
 def login(request):
     return render_to_response('login.html', {}, context_instance=RequestContext(request))
@@ -19,10 +22,19 @@ def espera(request):
     return render_to_response('espera.html', {}, context_instance=RequestContext(request))
 
 def home(request):
-    return render_to_response('home.html', {}, context_instance=RequestContext(request))
+    if request.session['usuario']:
+
+        return render_to_response('home.html',
+            {
+                'user': request.session['usuario'],
+                'sesion': request.session['sesionActiva']
+            },
+        context_instance=RequestContext(request))
+
+    return login(request)
 
 def integracion(u, c):
-    user = usuario(nombre=str(u).strip())
+    user = usuario(nombre=str(u))
     conn = manejadorDeConexion()
     while True:
         user.sesion = str(conn.getAvailableConnection())
@@ -40,28 +52,30 @@ def acceso(request):
         if request.method == 'POST':
             print request.POST
             try:
-                if len(usuario.objects.get(nombre=str(request.POST['usuario'])).sesion)>0:
+                if usuario.objects.get(nombre=str(request.POST['usuario']).strip().upper()).sesion:
                     r['resultado'] = str('#/error')
                     request.session['currentError'] = str('El Usuario '+str(request.POST['usuario']).upper()+' ya esta en uso...')
+                    print 'Usuario actualmente en uso...'
                     return HttpResponse(
                         json.dumps(r),
                         content_type="application/json; charset=UTF-8"
                     )
             except:
                 pass
-            acc = integracion(str(request.POST['usuario']), str(request.POST['clave']))
+            acc = integracion(str(request.POST['usuario']).strip().upper(), str(request.POST['clave']))
             if acc:
-                user = usuario.objects.get(nombre=str(request.POST['usuario']).strip())
+                user = usuario.objects.get(nombre=str(request.POST['usuario']).strip().upper())
                 try:
-                    if str(acc)[0].isupper():
+                    if acc[0].isupper():
                         print 'donde kiero'
                         r['resultado'] = str('#/error')
                         request.session['currentError'] = str(acc)
                         user.delete()
                         print 'borro...'
                 except:
-                    request.session['usuario'] = user.nombre
+                    request.session['usuario'] = user.nombre.upper()
                     request.session['sesionActiva'] = user.sesion
+                    request.session['uri'] = '#/home'
                     r['resultado'] = str('#/home')
             else:
                 r['resultado'] = str('#/error')
@@ -80,10 +94,29 @@ def acceso(request):
 
 
 def error(request):
+    msjError = request.session['currentError']
+    print msjError
+    request.session['currentError'] = None
     return render_to_response('error.html',
         {
-            'msjError': request.session['currentError'],
+            'msjError': msjError,
             'code': "#/",
             'tiempo': 4
         },
         context_instance=RequestContext(request))
+
+def cerrarSico(sesionAct):
+    c = manejadorDeConexion()
+    c.closeProgram(sesionAct)
+
+def salir(request):
+    try:
+        user = usuario.objects.get(nombre=str(request.session['usuario']))
+        cerrarSico(user.sesion)
+        user.sesion = ''
+        user.save()
+    except:
+        pass
+    request.session['usuario']=None
+    request.session['sesionActiva'] = None
+    return login(request)

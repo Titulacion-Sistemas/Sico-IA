@@ -25,49 +25,56 @@
 
             }])
 
-            .controller('login', ['$scope', function($scope){
+            .controller('home', ['$scope', function($scope){
 
-                $scope.login=function(){
-                    if($scope.usuario  && $scope.clave){
+                $scope.login = function () {
+                    if ($scope.usuario && $scope.clave) {
 
                         var parametros = {
                             csrfmiddlewaretoken: '{{ csrf_token }}',
-                            "usuario" : $scope.usuario,
-                            "clave" : $scope.clave
+                            "usuario": $scope.usuario,
+                            "clave": $scope.clave
                         };
                         $.ajax({
-                            data:  parametros,
-                            url:   '{% url 'acceso' %}',
-                            type:  'POST',
+                            data: parametros,
+                            url: '{% url 'acceso' %}',
+                            type: 'POST',
                             datatype: 'json',
                             async: true,
                             beforeSend: function () {
                                 window.location.assign('#/espera');
                             },
-                            success:  function (response) {
+                            success: function (response) {
                                 //alert(response);
                                 window.location.assign(response.resultado);
                             },
-                            error: function(){
+                            error: function () {
 
                             }
 
                         });
 
                     }
-                    else{
+                    else {
 
                     }
+                };
 
+                $scope.logout=function(){
+                    window.location.assign('#/salir');
+                };
 
-                }
+            }])
+
+            .controller('error', ['$scope', function($scope){
+
             }])
 
             .config( ['$routeProvider',
                 function($routeProvider) {
                     $routeProvider.when('/', {
-                        controller: 'login',
-                        templateUrl: '{% url 'login' %}'
+                        controller: 'home',
+                        templateUrl: '{% url 'home' %}'
                     }).
                     when('/espera', {
                         templateUrl: '{% url 'espera' %}'
@@ -80,12 +87,12 @@
                         controller: 'home',
                         templateUrl: '{% url 'home' %}'
                     }).
-                    otherwise({
-                        redirectTo: '/home',
-                        controller: 'home',
-                        templateUrl: '{% url 'home' %}'
-                    });
-              }])
+                    when('/salir', {
+                        templateUrl: '{% url 'salir' %}',
+                        controller: 'home'
+                    })
+                    ;
+              }]);
         </script>
     {% endblock %}
 

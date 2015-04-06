@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4257294839">
-    <data-source source="LOCAL" name="Django default" uuid="7f6d6b12-9c15-493e-9609-89accd1a1f2f">
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:E:\Datos\Documents\GitHub\Sico_IA\db.sqlite3</jdbc-url>
-      <libraries />
-    </data-source>
-  </component>
-</project>
+<project version="4" />
 
