@@ -7,6 +7,7 @@
         </div>
         <div class="modal-body">
             <form class="form col-md-12 center-block" name="forma">
+                {% csrf_token %}
                 <div class="form-group" data-ng-class="{'has-error' : forma.usuario.$dirty && forma.usuario.$invalid && forma.usuario.$error.required,
                                                         'has-success' : forma.usuario.$valid}">
                     <input

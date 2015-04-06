@@ -38,13 +38,14 @@
                         $.ajax({
                             data:  parametros,
                             url:   '{% url 'acceso' %}',
-                            type:  'post',
-                            datatype: 'json' ,
+                            type:  'POST',
+                            datatype: 'json',
                             async: true,
                             beforeSend: function () {
                                 window.location.assign('#/espera');
                             },
                             success:  function (response) {
+                                //alert(response);
                                 window.location.assign(response.resultado);
                             },
                             error: function(){

@@ -35,29 +35,55 @@ def integracion(u, c):
     return conn.openSession(connectionName=user.sesion, usuario=user.nombre, contrasenia=c)
 
 def acceso(request):
-    if request.method == 'POST':
-        print request.POST
-
-        r = {}
-        if integracion(str(request.POST['usuario']), str(request.POST['clave'])):
-            user = usuario.objects.get(nombre=str(request.POST['usuario']).strip())
-            request.session['usuario'] = user
-            r['resultado'] = '#/home'
-            print 'a home'
-        else:
-            r['resultado'] = '#/error'
-            request.session['currentError'] = 'El Sistema Comercial(Sico Cnel) no esta disponible por el momento...'
-            print 'error'
-
-
-        print "Usuario... " + str(request.POST['usuario'])
-        return HttpResponse(json.dumps(r), content_type="application/json")
+    r = {}
+    try:
+        if request.method == 'POST':
+            print request.POST
+            try:
+                if len(usuario.objects.get(nombre=str(request.POST['usuario'])).sesion)>0:
+                    r['resultado'] = str('#/error')
+                    request.session['currentError'] = str('El Usuario '+str(request.POST['usuario']).upper()+' ya esta en uso...')
+                    return HttpResponse(
+                        json.dumps(r),
+                        content_type="application/json; charset=UTF-8"
+                    )
+            except:
+                pass
+            acc = integracion(str(request.POST['usuario']), str(request.POST['clave']))
+            if acc:
+                user = usuario.objects.get(nombre=str(request.POST['usuario']).strip())
+                try:
+                    if str(acc)[0].isupper():
+                        print 'donde kiero'
+                        r['resultado'] = str('#/error')
+                        request.session['currentError'] = str(acc)
+                        user.delete()
+                        print 'borro...'
+                except:
+                    request.session['usuario'] = user.nombre
+                    request.session['sesionActiva'] = user.sesion
+                    r['resultado'] = str('#/home')
+            else:
+                r['resultado'] = str('#/error')
+                request.session['currentError'] = str('El Sistema Comercial(Sico Cnel) no esta disponible por el momento...')
+            print "Usuario... " + str(r)
+            return HttpResponse(
+                json.dumps(r),
+                content_type="application/json; charset=UTF-8"
+            )
+    except:
+        print 'Error...'
+        return HttpResponse(
+            json.dumps(r),
+            content_type="application/json; charset=UTF-8"
+        )
 
 
 def error(request):
     return render_to_response('error.html',
         {
             'msjError': request.session['currentError'],
-            'code': "window.setTimeout('window.location.assign("+str("\"/\"")+")',3000);"
+            'code': "#/",
+            'tiempo': 4
         },
         context_instance=RequestContext(request))

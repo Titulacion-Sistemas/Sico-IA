@@ -4,13 +4,14 @@
         <div class="modal-header">
             <h1 class="text-center">Error</h1>
         </div>
-        <div class="modal-body alert alert-danger">
-            <div class="loader-inner line-scale text-center"><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="modal-body alert alert-danger text-center">
             <p>
                 <span>
                     {{ msjError }}
                 </span>
+                <span id="restante" class="badge">{{ tiempo }}</span>
             </p>
+            <input id="uri" type="hidden" value="{{ code }}">
         </div>
         <div class="modal-footer">
             <div class="col-md-12">
@@ -18,7 +19,21 @@
         </div>
 
         <script>
-            {{ code }}
+            $(document).ready(function(){
+                window.setTimeout("redirect()",1000);
+            }
+            );
+            function redirect(){
+                var uri = $("#uri").val();
+                var restante = $("#restante");
+                restante.html(restante.html() - 1);
+                if (restante.html() == 0){
+                    window.location.assign(uri);
+                }
+                window.setTimeout("redirect()",1000);
+            }
+
+
         </script>
 
     </div>
