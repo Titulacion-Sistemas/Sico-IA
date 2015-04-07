@@ -139,3 +139,7 @@ body {
   		border-right:0;
 	}
 }
+
+.mano{
+    cursor: pointer;
+}

@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^error/$', 'ingreso.views.error', name='error'),
     url(r'^home/$', 'ingreso.views.home', name='home'),
     url(r'^salir/$', 'ingreso.views.salir', name='salir'),
+    url(r'^principal/$', 'ingreso.views.principal', name='principal'),
 )

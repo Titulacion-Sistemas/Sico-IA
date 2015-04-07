@@ -10,10 +10,12 @@ from ingreso.models import usuario
 
 
 def index(request):
-    if request.session['usuario']:
-        request.session['uri'] = '#/home'
-    uri = request.session['uri']
-    return render_to_response('index.html', {'uri': uri}, context_instance=RequestContext(request))
+    try:
+        if request.session['usuario']:
+            return HttpResponseRedirect('/home/')
+    except:
+        pass
+    return render_to_response('index.html', {}, context_instance=RequestContext(request))
 
 def login(request):
     return render_to_response('login.html', {}, context_instance=RequestContext(request))
@@ -22,16 +24,17 @@ def espera(request):
     return render_to_response('espera.html', {}, context_instance=RequestContext(request))
 
 def home(request):
-    if request.session['usuario']:
-
-        return render_to_response('home.html',
-            {
-                'user': request.session['usuario'],
-                'sesion': request.session['sesionActiva']
-            },
-        context_instance=RequestContext(request))
-
-    return login(request)
+    try:
+        if request.session['usuario']:
+            return render_to_response('home.html',
+                {
+                    'user': request.session['usuario'],
+                    'sesion': request.session['sesionActiva']
+                }
+            , context_instance=RequestContext(request))
+    except:
+        pass
+    return HttpResponseRedirect('/salir/')
 
 def integracion(u, c):
     user = usuario(nombre=str(u))
@@ -75,8 +78,7 @@ def acceso(request):
                 except:
                     request.session['usuario'] = user.nombre.upper()
                     request.session['sesionActiva'] = user.sesion
-                    request.session['uri'] = '#/home'
-                    r['resultado'] = str('#/home')
+                    r['resultado'] = str('/home/')
             else:
                 r['resultado'] = str('#/error')
                 request.session['currentError'] = str('El Sistema Comercial(Sico Cnel) no esta disponible por el momento...')
@@ -117,6 +119,12 @@ def salir(request):
         user.save()
     except:
         pass
-    request.session['usuario']=None
+    request.session['usuario'] = None
     request.session['sesionActiva'] = None
-    return login(request)
+    return HttpResponseRedirect('/')
+
+
+def principal(request):
+    return render_to_response('principal.html',
+        {}
+    , context_instance=RequestContext(request))
