@@ -12,5 +12,5 @@ class usuario(models.Model):
         return '%s - %s' % (self.nombre, self.sesion)
 
     class Meta:
-        verbose_name = 'Usuario en Sico'
-        verbose_name_plural = 'Usuarios en Sico'
+        verbose_name = 'Usuario de Sico'
+        verbose_name_plural = 'Usuarios de Sico'

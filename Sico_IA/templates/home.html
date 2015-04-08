@@ -15,7 +15,7 @@
                     Sico - I.A.
                 </a>
             </div>
-            <nav class="collapse navbar-collapse">
+            <nav data-ng-if="modulos.length>0" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                       <a href class="dropdown-toggle" data-toggle="dropdown">Navbar Item 2<b class="caret"></b></a>
@@ -88,6 +88,29 @@
                 $scope.logout=function(){
                     window.location.assign('/salir');
                 };
+
+                $scope.modulos={};
+
+                $scope.topLinks=function(){
+                    var parametros = {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    };
+                    $.ajax({
+                        data: parametros,
+                        url: '{% url 'toplinks' %}',
+                        type: 'POST',
+                        datatype: 'json',
+                        async: true,
+                        beforeSend: function () {},
+                        success: function (response) {
+                            $scope.modulos=response;
+                        },
+                        error: function () {
+
+                        }
+
+                    });
+                }
 
             }])
 
