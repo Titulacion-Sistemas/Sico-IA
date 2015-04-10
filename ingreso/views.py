@@ -7,6 +7,7 @@ from django.template.context import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
 from Sico_IA.pComm.conexion import manejadorDeConexion
 from ingreso.models import usuario
+from modulo.models import modulo
 
 
 def index(request):
@@ -26,10 +27,25 @@ def espera(request):
 def home(request):
     try:
         if request.session['usuario']:
+            var=[]
+            for r in modulo.objects.filter(submodulo=''):
+                submodulos = []
+                for sub in modulo.objects.filter(submodulo=r):
+                    submodulos.append({
+                        'nombre': sub.valor,
+                        'link': sub.nombre
+                    })
+                var.append({
+                    'nombre': r.valor,
+                    'link': r.nombre,
+                    'submodulos': submodulos
+                })
+            print var
             return render_to_response('home.html',
                 {
                     'user': request.session['usuario'],
-                    'sesion': request.session['sesionActiva']
+                    'sesion': request.session['sesionActiva'],
+                    'modulos': var
                 }
             , context_instance=RequestContext(request))
     except:

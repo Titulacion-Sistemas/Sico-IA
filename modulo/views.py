@@ -9,15 +9,27 @@ from modulo.models import modulo
 
 
 def toplinks(request):
-    r = {}
+    retorno={}
     if request.method == 'POST':
         print request.POST
+        var=[]
+        for r in modulo.objects.filter(submodulo=''):
+            submodulos = []
+            for sub in modulo.objects.filter(submodulo=r):
+                submodulos.append({
+                    'nombre': sub.valor,
+                    'link': sub.nombre
+                })
+            var.append({
+                'nombre': r.valor,
+                'link': r.nombre,
+                'submodulos': submodulos
+            })
+        print var
 
-        r = modulo.objects.filter(submodulo='')
-        #for a in r:
-
+        retorno['modulos'] = var
 
     return HttpResponse(
-        json.dumps(r),
+        json.dumps(retorno),
         content_type="application/json; charset=UTF-8"
     )
