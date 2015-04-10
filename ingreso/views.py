@@ -45,7 +45,9 @@ def home(request):
                 {
                     'user': request.session['usuario'],
                     'sesion': request.session['sesionActiva'],
-                    'modulos': var
+                    'modulos': json.dumps(var),
+                    'angOpen': '{{',
+                    'angClose': '}}'
                 }
             , context_instance=RequestContext(request))
     except:
