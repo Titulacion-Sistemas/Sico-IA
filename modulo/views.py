@@ -1,35 +1,13 @@
 import json
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 
 # Create your views here.
+from django.template import RequestContext
 from ingreso.models import usuario
 from ingreso.views import integracion
 from modulo.models import modulo
 
 
-def toplinks(request):
-    retorno={}
-    if request.method == 'POST':
-        print request.POST
-        var=[]
-        for r in modulo.objects.filter(submodulo=''):
-            submodulos = []
-            for sub in modulo.objects.filter(submodulo=r):
-                submodulos.append({
-                    'nombre': sub.valor,
-                    'link': sub.nombre
-                })
-            var.append({
-                'nombre': r.valor,
-                'link': r.nombre,
-                'submodulos': submodulos
-            })
-        print var
-
-        retorno['modulos'] = var
-
-    return HttpResponse(
-        json.dumps(retorno),
-        content_type="application/json; charset=UTF-8"
-    )
+def enconstruccion(request):
+    return render_to_response('enconstruccion.html', {}, context_instance=RequestContext(request))

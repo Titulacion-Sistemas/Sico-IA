@@ -1,6 +1,6 @@
 [Profile]
 ID=WS
-Version=8
+Version=9
 [CT]
 trace=Y
 [Telnet5250]

@@ -88,16 +88,21 @@ def acceso(request):
                 user = usuario.objects.get(nombre=str(request.POST['usuario']).strip().upper())
                 try:
                     if acc[0].isupper():
-                        print 'donde kiero'
                         r['resultado'] = str('#/error')
                         request.session['currentError'] = str(acc)
-                        user.delete()
-                        print 'borro...'
+                        user.sesion=''
+                        user.save()
                 except:
                     request.session['usuario'] = user.nombre.upper()
                     request.session['sesionActiva'] = user.sesion
                     r['resultado'] = str('/home/')
             else:
+                try:
+                    u = usuario.objects.get(nombre=str(request.POST['usuario']).strip())
+                    if not u.sesion:
+                        u.sesion=''
+                except:
+                    pass
                 r['resultado'] = str('#/error')
                 request.session['currentError'] = str('El Sistema Comercial(Sico Cnel) no esta disponible por el momento...')
             print "Usuario... " + str(r)
@@ -143,6 +148,4 @@ def salir(request):
 
 
 def principal(request):
-    return render_to_response('principal.html',
-        {}
-    , context_instance=RequestContext(request))
+    return render_to_response('principal.html', {}, context_instance=RequestContext(request))

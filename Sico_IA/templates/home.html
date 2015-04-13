@@ -134,6 +134,11 @@
                     when('/salir', {
                         templateUrl: '{% url 'salir' %}',
                         controller: 'home'
+                    }).
+                    when('/enconstruccion', {
+                        templateUrl: '{% url 'enconstruccion' %}'
+                    }).otherwise({
+                      redirectTo: '/enconstruccion'
                     })
                     ;
               }]);

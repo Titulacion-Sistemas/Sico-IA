@@ -17,6 +17,6 @@ urlpatterns = patterns('',
     url(r'^salir/$', 'ingreso.views.salir', name='salir'),
     url(r'^principal/$', 'ingreso.views.principal', name='principal'),
 
-    url(r'^toplinks/$', 'modulo.views.toplinks', name='toplinks'),
+    url(r'^enconstruccion/$', 'modulo.views.enconstruccion', name='enconstruccion'),
 
 )
