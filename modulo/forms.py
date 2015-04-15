@@ -20,8 +20,8 @@ class busquedas(forms.Form):
 
     criterio = forms.ModelChoiceField(
         modulo.objects.filter(submodulo=modulo.objects.get(nombre='busquedas')),
-        initial=0, label='Criterio',
-        widget=forms.TextInput(
+        label='Criterio', empty_label=None,
+        widget=forms.Select(
             attrs={
                 'data-ng-model': 'criterio'
             }

@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     url(r'^principal/$', 'ingreso.views.principal', name='principal'),
 
     url(r'^enconstruccion/$', 'modulo.views.enconstruccion', name='enconstruccion'),
+    url(r'^busquedas/$', 'modulo.views.busquedas', name='busquedas'),
 
 )

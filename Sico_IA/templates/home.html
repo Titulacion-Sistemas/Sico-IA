@@ -11,7 +11,7 @@
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <i class="icon-reorder"></i>
                 </button>
-                <a class="navbar-brand" href="#/">
+                <a class="navbar-brand ng-scope" data-ng-href="#/">
                     Sico - I.A.
                 </a>
             </div>
@@ -20,6 +20,7 @@
                     <li data-ng-repeat="m in modulos">
                       <a
                          data-ng-if="m.submodulos.length<1"
+                         data-ng-click="sidebar(m.submodulos)"
                          data-ng-href="#/{{ angOpen }} m.link | lowercase {{ angClose }}"
                       >
                           {{ angOpen }} m.nombre {{ angClose }}
@@ -33,8 +34,9 @@
                       </a>
                         <ul data-ng-if="m.submodulos.length>0" class="dropdown-menu">
                             <li data-ng-repeat="sm in m.submodulos">
-                                <a data-ng-href="#/{{ angOpen }} sm.link | lowercase {{ angClose }}"
-                                        >
+                                <a data-ng-click="sidebar(m.submodulos)"
+                                data-ng-href="#/{{ angOpen }} sm.link | lowercase {{ angClose }}"
+                                >
                                     {{ angOpen }} sm.nombre {{ angClose }}
                                 </a>
                             </li>
@@ -65,24 +67,25 @@
         <div id="wrapper">
             <div id="sidebar-wrapper" class="col-md-1">
                 <div id="sidebar">
-                    <ul class="nav list-group">
-                        <li>
-                            <a class="list-group-item" href><i class="icon-home icon-1x"></i>Sidebar Item 1</a>
-                        </li>
-                        <li>
-                            <a class="list-group-item" href><i class="icon-home icon-1x"></i>Sidebar Item 2</a>
-                        </li>
-                        <li>
-                            <a class="list-group-item" href><i class="icon-home icon-1x"></i>Sidebar Item 3</a>
+                    <ul data-ng-show="menuLateral.length>0" class="nav list-group">
+                        <li
+                            data-ng-repeat="m in menuLateral">
+                            <a class="list-group-item"
+                               data-ng-href="#/{{ angOpen }} m.link | lowercase {{ angClose }}">
+                                <i class="icon-home icon-1x"></i>
+                                {{ angOpen }} m.nombre {{ angClose }}
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div id="main-wrapper" class="col-md-11 pull-right">
+
                 <div
-                data-ng-view class="view"
+                data-ng-view id="ng-view" class="view"
                         >
                 </div>
+
             </div>
         </div>
 
@@ -99,18 +102,27 @@
                 $scope.logout=function(){
                     window.location.assign('/salir');
                 };
+                $scope.menuLateral=[];
+                $scope.sidebar=function(opciones){
+                    console.log(opciones);
+                    $scope.menuLateral=opciones;
+                };
 
-                        $scope.modulos={{ modulos|safe}}
-
-            }])
-
-            .controller('home', ['$scope', function($scope){
+                $scope.modulos={{ modulos|safe}};
 
 
 
             }])
 
             .controller('error', ['$scope', function($scope){
+            }])
+
+            .controller('home', ['$scope', function($scope){
+            }])
+
+            .controller('busquedas', ['$scope', function($scope){
+
+
 
             }])
 
@@ -131,13 +143,29 @@
                         controller: 'home',
                         templateUrl: '{% url 'principal' %}'
                     }).
+                    when('/porcuenta', {
+                        controller: 'busquedas',
+                        templateUrl: '{% url 'busquedas' %}'
+                    }).
+                    when('/pormedidor', {
+                        controller: 'busquedas',
+                        templateUrl: '{% url 'busquedas' %}'
+                    }).
+                    when('/pornombre', {
+                        controller: 'busquedas',
+                        templateUrl: '{% url 'busquedas' %}'
+                    }).
+                    when('/porgeocodigo', {
+                        controller: 'busquedas',
+                        templateUrl: '{% url 'busquedas' %}'
+                    }).
                     when('/salir', {
-                        templateUrl: '{% url 'salir' %}',
-                        controller: 'home'
+                        templateUrl: '{% url 'salir' %}'
                     }).
                     when('/enconstruccion', {
                         templateUrl: '{% url 'enconstruccion' %}'
-                    }).otherwise({
+                    }).
+                    otherwise({
                       redirectTo: '/enconstruccion'
                     })
                     ;
