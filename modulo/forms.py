@@ -13,6 +13,8 @@ class busquedas(forms.Form):
         required=True, initial='', label='Dato a Buscar',
         widget=forms.TextInput(
             attrs={
+                'class': "form-control input-lg may",
+                'name': "dato",
                 'data-ng-model': 'dato'
             }
         ),
@@ -23,6 +25,8 @@ class busquedas(forms.Form):
         label='Criterio', empty_label=None,
         widget=forms.Select(
             attrs={
+                'class': "form-control input-lg may",
+                'name': "criterio",
                 'data-ng-model': 'criterio'
             }
         ),

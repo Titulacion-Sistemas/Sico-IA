@@ -20,7 +20,7 @@
                     <li data-ng-repeat="m in modulos">
                       <a
                          data-ng-if="m.submodulos.length<1"
-                         data-ng-click="sidebar(m.submodulos)"
+                         data-ng-click="sidebar(m.submodulos, {})"
                          data-ng-href="#/{{ angOpen }} m.link | lowercase {{ angClose }}"
                       >
                           {{ angOpen }} m.nombre {{ angClose }}
@@ -34,7 +34,7 @@
                       </a>
                         <ul data-ng-if="m.submodulos.length>0" class="dropdown-menu">
                             <li data-ng-repeat="sm in m.submodulos">
-                                <a data-ng-click="sidebar(m.submodulos)"
+                                <a data-ng-click="sidebar(m.submodulos, sm)"
                                 data-ng-href="#/{{ angOpen }} sm.link | lowercase {{ angClose }}"
                                 >
                                     {{ angOpen }} sm.nombre {{ angClose }}
@@ -70,7 +70,8 @@
                     <ul data-ng-show="menuLateral.length>0" class="nav list-group">
                         <li
                             data-ng-repeat="m in menuLateral">
-                            <a class="list-group-item"
+                            <a data-ng-class="{well: m.link}"
+                               class="list-group-item"
                                data-ng-href="#/{{ angOpen }} m.link | lowercase {{ angClose }}">
                                 <i class="icon-home icon-1x"></i>
                                 {{ angOpen }} m.nombre {{ angClose }}
@@ -98,18 +99,18 @@
                     //http://www.aprendiendoando.com/angularjs-clase-13-crear-animaciones
 
             .controller('AppCtrl', ['$scope', function($scope) {
-                $scope.topScope = $scope;
+
                 $scope.logout=function(){
                     window.location.assign('/salir');
                 };
                 $scope.menuLateral=[];
-                $scope.sidebar=function(opciones){
+                $scope.sidebar=function(opciones, seleccion){
                     console.log(opciones);
-                    $scope.menuLateral=opciones;
+                    $scope.menuLateral=opciones; /*arreglo de dicts*/
+                    $scope.sidebarSeleccionado= seleccion; /*dict*/
                 };
 
                 $scope.modulos={{ modulos|safe}};
-
 
 
             }])
@@ -122,7 +123,8 @@
 
             .controller('busquedas', ['$scope', function($scope){
 
-
+                $scope.sidebar($scope.modulos[0].submodulos);
+                
 
             }])
 
