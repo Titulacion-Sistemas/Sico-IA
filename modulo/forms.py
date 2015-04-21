@@ -15,7 +15,10 @@ class busquedas(forms.Form):
             attrs={
                 'class': "form-control input-lg may",
                 'name': "dato",
-                'data-ng-model': 'dato'
+                'data-ng-model': 'dato',
+                'autofocus': 'true',
+                'tabindex': '0',
+                'show-focus': "true"
             }
         ),
     )

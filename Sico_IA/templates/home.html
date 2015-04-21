@@ -11,7 +11,9 @@
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <i class="icon-reorder"></i>
                 </button>
-                <a class="navbar-brand ng-scope" data-ng-href="#/">
+                <a class="navbar-brand ng-scope"
+                   data-ng-href="#/"
+                   data-ng-click="sidebar([], '')">
                     Sico - I.A.
                 </a>
             </div>
@@ -68,7 +70,7 @@
             <div id="sidebar-wrapper" class="col-md-1">
                 <div id="sidebar">
                     <ul data-ng-show="menuLateral.length>0" class="nav list-group">
-                        <li data-ng-repeat="m in menuLateral">
+                        <li data-ng-repeat="m in menuLateral" class="toggle">
                             <a data-ng-class="{well: m.activo}"
                                data-ng-click="seleccion(m.link)"
                                class="list-group-item"
@@ -124,9 +126,7 @@
                                 $scope.menuLateral[i].activo=true;
                                 $scope.criterio =  $scope.menuLateral[i].link;
                             }
-
                         }
-                        //console.log(index);
 
                     }
 
@@ -145,9 +145,19 @@
             .controller('busquedas', ['$scope', function($scope){
 
                 //$scope.sidebar($scope.modulos[0].submodulos);
-                
 
             }])
+
+            .directive('showFocus', function($timeout) {
+              return function(scope, element, attrs) {
+                scope.$watch(attrs.showFocus,
+                  function (newValue) {
+                    $timeout(function() {
+                        newValue && element.focus();
+                    });
+                  },true);
+              };
+            })
 
             .config( ['$routeProvider',
                 function($routeProvider) {
