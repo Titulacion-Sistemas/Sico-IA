@@ -20,7 +20,7 @@
                     <li data-ng-repeat="m in modulos">
                       <a
                          data-ng-if="m.submodulos.length<1"
-                         data-ng-click="sidebar(m.submodulos, {})"
+                         data-ng-click="sidebar(m.submodulos, '')"
                          data-ng-href="#/{{ angOpen }} m.link | lowercase {{ angClose }}"
                       >
                           {{ angOpen }} m.nombre {{ angClose }}
@@ -34,7 +34,7 @@
                       </a>
                         <ul data-ng-if="m.submodulos.length>0" class="dropdown-menu">
                             <li data-ng-repeat="sm in m.submodulos">
-                                <a data-ng-click="sidebar(m.submodulos, sm)"
+                                <a data-ng-click="sidebar(m.submodulos, sm.link)"
                                 data-ng-href="#/{{ angOpen }} sm.link | lowercase {{ angClose }}"
                                 >
                                     {{ angOpen }} sm.nombre {{ angClose }}
@@ -68,9 +68,9 @@
             <div id="sidebar-wrapper" class="col-md-1">
                 <div id="sidebar">
                     <ul data-ng-show="menuLateral.length>0" class="nav list-group">
-                        <li
-                            data-ng-repeat="m in menuLateral">
-                            <a data-ng-class="{well: m.link}"
+                        <li data-ng-repeat="m in menuLateral">
+                            <a data-ng-class="{well: m.activo}"
+                               data-ng-click="seleccion(m.link)"
                                class="list-group-item"
                                data-ng-href="#/{{ angOpen }} m.link | lowercase {{ angClose }}">
                                 <i class="icon-home icon-1x"></i>
@@ -95,6 +95,9 @@
 
     {% block jqueryAngular %}
         <script>
+            $(document).ready(function(){
+                 window.location.assign('#/');
+            });
             angular.module("sico_ia", ['ngRoute', 'ngAnimate'])
                     //http://www.aprendiendoando.com/angularjs-clase-13-crear-animaciones
 
@@ -105,13 +108,31 @@
                 };
                 $scope.menuLateral=[];
                 $scope.sidebar=function(opciones, seleccion){
-                    console.log(opciones);
+
                     $scope.menuLateral=opciones; /*arreglo de dicts*/
-                    $scope.sidebarSeleccionado= seleccion; /*dict*/
+                    /*$scope.sidebarSeleccionado= seleccion; dict*/
+                    if (opciones.length > 0 && seleccion.length > 0)
+                        $scope.seleccion(seleccion);
+                };
+                $scope.seleccion=function(seleccion){
+
+                    if($scope.menuLateral.length > 0){
+                        for (var i=0; i<$scope.menuLateral.length; i++) {
+                            if (seleccion != $scope.menuLateral[i].link){
+                                $scope.menuLateral[i].activo=false;
+                            }else{
+                                $scope.menuLateral[i].activo=true;
+                                $scope.criterio =  $scope.menuLateral[i].link;
+                            }
+
+                        }
+                        //console.log(index);
+
+                    }
+
                 };
 
                 $scope.modulos={{ modulos|safe}};
-
 
             }])
 
@@ -123,7 +144,7 @@
 
             .controller('busquedas', ['$scope', function($scope){
 
-                $scope.sidebar($scope.modulos[0].submodulos);
+                //$scope.sidebar($scope.modulos[0].submodulos);
                 
 
             }])
@@ -172,5 +193,6 @@
                     })
                     ;
               }]);
+
         </script>
     {% endblock %}

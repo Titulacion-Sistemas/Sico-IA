@@ -27,7 +27,8 @@ class busquedas(forms.Form):
             attrs={
                 'class': "form-control input-lg may",
                 'name': "criterio",
-                'data-ng-model': 'criterio'
+                'data-ng-model': 'criterio',
+                'data-ng-change': 'seleccion(criterio)'
             }
         ),
         required=True
