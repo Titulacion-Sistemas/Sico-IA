@@ -37,10 +37,22 @@
 
             <div id="listaResultados" class="col-md-8">
 
-                <div class="modal-body alert alert-info">
-                    <div class="loader-inner ball-clip-rotate-multiple text-center"><div></div><div></div></div>
-                    -
-                </div>
+
+
+                        <div class="panel panel-info animate-show"
+                                data-ng-show="buscando">
+                            <div class="panel-heading">Buscando...</div>
+                            <div class="panel-body">
+                                <div style="width: 68px; height: 68px; margin-bottom: 0;"
+                                     class="alert alert-info center-block" >
+                                    <div class="loader-inner ball-clip-rotate-multiple center-block">
+                                        <div></div><div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
 
             </div>
         </div>

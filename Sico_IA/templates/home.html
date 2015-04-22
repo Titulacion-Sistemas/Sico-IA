@@ -144,8 +144,11 @@
 
             .controller('busquedas', ['$scope', function($scope){
 
+                $scope.buscando=false;
+
                 $scope.buscarPost=function(){
-                    var parametros = {
+                    $scope.buscando=true;
+                    /*var parametros = {
                         csrfmiddlewaretoken: '{{ csrf_token }}',
                         "formulario": $('#buscarForm').serialize()
                     };
@@ -156,16 +159,18 @@
                         datatype: 'json',
                         async: true,
                         beforeSend: function () {
-                            window.location.assign('#/espera');
+                            $scope.buscando=true;
                         },
                         success: function (response) {
+
+                            $scope.buscando=false;
                             //alert(response);
                         },
                         error: function () {
-
+                            $scope.buscando=false;
                         }
 
-                    });
+                    });*/
                 };
 
             }])
