@@ -144,7 +144,29 @@
 
             .controller('busquedas', ['$scope', function($scope){
 
-                //$scope.sidebar($scope.modulos[0].submodulos);
+                $scope.buscarPost=function(){
+                    var parametros = {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        "formulario": $('#buscarForm').serialize()
+                    };
+                    $.ajax({
+                        data: parametros,
+                        url: '{% url 'acceso' %}',
+                        type: 'POST',
+                        datatype: 'json',
+                        async: true,
+                        beforeSend: function () {
+                            window.location.assign('#/espera');
+                        },
+                        success: function (response) {
+                            //alert(response);
+                        },
+                        error: function () {
+
+                        }
+
+                    });
+                };
 
             }])
 
