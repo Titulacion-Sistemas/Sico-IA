@@ -26,3 +26,20 @@ def busquedas(request):
     }
 
     return render_to_response('busquedas.html', data, context_instance=RequestContext(request))
+
+
+
+def busquedaporcuenta(request):
+    return render_to_response('busquedaporcuenta.html', {}, context_instance=RequestContext(request))
+
+
+def busquedapormedidor(request):
+    return render_to_response('busquedapormedidor.html', {}, context_instance=RequestContext(request))
+
+
+def busquedapornombre(request):
+    return render_to_response('busquedapornombre.html', {}, context_instance=RequestContext(request))
+
+
+def busquedaporgeocodigo(request):
+    return render_to_response('busquedaporgeocodigo.html', {}, context_instance=RequestContext(request))

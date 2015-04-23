@@ -19,5 +19,9 @@ urlpatterns = patterns('',
 
     url(r'^enconstruccion/$', 'modulo.views.enconstruccion', name='enconstruccion'),
     url(r'^busquedas/$', 'modulo.views.busquedas', name='busquedas'),
+    url(r'^busquedaporcuenta/$', 'modulo.views.busquedaporcuenta', name='busquedaporcuenta'),
+    url(r'^busquedapormedidor/$', 'modulo.views.busquedapormedidor', name='busquedapormedidor'),
+    url(r'^busquedapornombre/$', 'modulo.views.busquedapornombre', name='busquedapornombre'),
+    url(r'^busquedaporgeocodigo/$', 'modulo.views.busquedaporgeocodigo', name='busquedaporgeocodigo'),
 
 )

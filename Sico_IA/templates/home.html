@@ -69,7 +69,7 @@
         <div id="wrapper">
             <div id="sidebar-wrapper" class="col-md-1">
                 <div id="sidebar">
-                    <ul data-ng-show="menuLateral.length>0" class="nav list-group">
+                    <ul data-ng-show="menuLateral.length>0" class="nav list-group animate-show">
                         <li data-ng-repeat="m in menuLateral" class="toggle">
                             <a data-ng-class="{well: m.activo}"
                                data-ng-click="seleccion(m.link)"
@@ -148,13 +148,15 @@
 
                 $scope.buscarPost=function(){
                     $scope.buscando=true;
-                    /*var parametros = {
+                    //alert('/busqueda'+$scope.criterio.toLocaleLowerCase()+'/');
+                    //alert('{% url 'busquedapornombre' %}');
+                    var parametros = {
                         csrfmiddlewaretoken: '{{ csrf_token }}',
                         "formulario": $('#buscarForm').serialize()
                     };
                     $.ajax({
                         data: parametros,
-                        url: '{% url 'acceso' %}',
+                        url: '/busqueda'+$scope.criterio.toLocaleLowerCase()+'/',
                         type: 'POST',
                         datatype: 'json',
                         async: true,
@@ -170,7 +172,7 @@
                             $scope.buscando=false;
                         }
 
-                    });*/
+                    });
                 };
 
             }])

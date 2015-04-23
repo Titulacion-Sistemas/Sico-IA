@@ -3,10 +3,8 @@
 import decimal
 from django.shortcuts import render_to_response
 import pythoncom
-from ControlSystem.pComm.conexion import manejadorDeConexion
-from busquedas.models import ClienteBuscado, MedidorBuscado
-from ingresos.models import cliente, secuencia, ruta, sector, canton, provincia, parroquia, ubicacion, calle, urbanizacion, modeloDeMedidor
-from inventario.models import medidor, marca
+from Sico_IA.pComm.conexion import manejadorDeConexion
+
 
 lectura = '0'
 
