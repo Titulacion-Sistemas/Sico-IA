@@ -144,11 +144,18 @@
 
             .controller('busquedas', ['$scope', function($scope){
 
-                $scope.buscando=false;
+
 
                 $scope.buscarPost=function(){
-                    $scope.buscando=true;
-                    //alert('/busqueda'+$scope.criterio.toLocaleLowerCase()+'/');
+
+                    $scope.valores={
+                        'coincidencias':{
+                            'titulo': 'Buscando...',
+                            'contenido': ''
+                        }
+                    };
+
+                    /*alert('/busqueda'+$scope.criterio.toLocaleLowerCase()+'/');
                     //alert('{% url 'busquedapornombre' %}');
                     var parametros = {
                         csrfmiddlewaretoken: '{{ csrf_token }}',
@@ -161,18 +168,21 @@
                         datatype: 'json',
                         async: true,
                         beforeSend: function () {
-                            $scope.buscando=true;
+
                         },
                         success: function (response) {
 
-                            $scope.buscando=false;
+                            $scope.valores=response;
+
                             //alert(response);
                         },
                         error: function () {
-                            $scope.buscando=false;
+                            $scope.valores={};
                         }
 
                     });
+
+                    */
                 };
 
             }])

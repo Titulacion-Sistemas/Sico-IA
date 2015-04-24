@@ -39,18 +39,20 @@
 
 
 
-                        <div class="panel panel-info animate-show"
-                                data-ng-show="buscando">
-                            <div class="panel-heading">Buscando...</div>
-                            <div class="panel-body">
-                                <div style="width: 68px; height: 68px; margin-bottom: 0;"
-                                     class="alert alert-info center-block" >
-                                    <div class="loader-inner ball-clip-rotate-multiple center-block">
-                                        <div></div><div></div>
-                                    </div>
-                                </div>
+                <div class="panel panel-info animate-show"
+                        data-ng-show="valores.coincidencias.contenido==''">
+                    <div class="panel-heading">{{ angOpen }} valores.coincidencias.titulo {{ angClose }}</div>
+                    <div class="panel-body">
+                        <div style="width: 68px; height: 68px; margin-bottom: 0;"
+                             class="alert alert-info center-block"
+                             data-ng-if="valores.coincidencias.contenido==''">
+                            <div class="loader-inner ball-clip-rotate-multiple center-block">
+                                <div></div><div></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
 
 
 
