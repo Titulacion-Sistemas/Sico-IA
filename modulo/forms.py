@@ -1,3 +1,4 @@
+# coding=utf-8
 from django import forms
 from modulo.models import modulo
 
@@ -36,3 +37,44 @@ class busquedas(forms.Form):
         ),
         required=True
     )
+
+    def clean(self):
+        cleaned_data = super(busquedas, self).clean()
+        tb = cleaned_data.get("tipoBusq")
+        c = cleaned_data.get("consulta")
+
+        if c and tb:
+            # Only do something if both fields are valid so far.
+            if tb == '1':
+                if not c.isdigit() or len(c) > 8:
+                    raise forms.ValidationError("Error, Cuenta ingresada no válida.")
+
+            if tb == '2':
+                if not c.isdigit() or len(c) >= 11:
+                    raise forms.ValidationError("Error, Número de medidor ingresado no válido.")
+
+            if tb == '3':
+                if c.isdigit():
+                    raise forms.ValidationError("Error, Nombre de ciente no valido.")
+
+            if tb == '4':
+                sp = c.split('.')
+                if len(sp) != 5 \
+                    or (not sp[0].isdigit()) \
+                    or (not sp[1].isdigit()) \
+                    or (not sp[2].isdigit()) \
+                    or (not sp[3].isdigit()) \
+                    or (not sp[4].isdigit()):
+
+                    raise forms.ValidationError("Error, Geocódigo incorrecto.")
+
+                elif len(sp[0]) > 2 or len(sp[0]) < 1 \
+                    or len(sp[1]) > 2 or len(sp[1]) < 1 \
+                    or len(sp[2]) > 2 or len(sp[2]) < 1 \
+                    or len(sp[3]) > 3 or len(sp[3]) < 1 \
+                    or len(sp[4]) > 7 or len(sp[4]) < 1:
+
+                    raise forms.ValidationError("Error, Geocódigo no válido.")
+
+                # Always return the full collection of cleaned data.
+        return cleaned_data

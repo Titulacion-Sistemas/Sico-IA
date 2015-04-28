@@ -2,6 +2,7 @@ import json
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from Sico_IA.pComm.busquedas.scriptsBusquedas import buscar
 from ingreso.models import usuario
 from ingreso.views import integracion
 from modulo.models import modulo
@@ -28,18 +29,36 @@ def busquedas(request):
     return render_to_response('busquedas.html', data, context_instance=RequestContext(request))
 
 
+def busquedacriterio(request):
+    if request.method == 'POST':
+        form = busquedas(request.POST['formulario'])
 
-def busquedaporcuenta(request):
-    return render_to_response('busquedas/porcuenta.html', {}, context_instance=RequestContext(request))
+        if form.is_valid():
 
+            b = buscar(request.session['sesionActiva'])
+            datos = b.busquedaDeTipo(form.data['criterio'], form.data['dato'])
 
-def busquedapormedidor(request):
-    return render_to_response('busquedas/pormedidor.html', {}, context_instance=RequestContext(request))
+            return {
+                'coincidencias':{
+                    'titulo': 'Coincidencias',
+                    'contenido': datos['cClientes']
+                },
+                'cliente':{
+                    'titulo': 'Datos de Cliente',
+                    'contenido': datos['formCliente']
+                },
+                'medidores':{
+                    'titulo': 'Medidores del Cliente',
+                    'contenido': datos['cMedidores']
+                }
+            }
+        else:
+            return {
+                'coincidencias':{
+                    'titulo': 'Error',
+                    'contenido': form.errors
+                }
+            }
+    else:
+        return render_to_response('busquedas/criterio.html', {}, context_instance=RequestContext(request))
 
-
-def busquedapornombre(request):
-    return render_to_response('busquedas/pornombre.html', {}, context_instance=RequestContext(request))
-
-
-def busquedaporgeocodigo(request):
-    return render_to_response('busquedas/porgeocodigo.html', {}, context_instance=RequestContext(request))

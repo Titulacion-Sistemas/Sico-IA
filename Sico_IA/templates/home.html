@@ -83,7 +83,6 @@
                 </div>
             </div>
             <div id="main-wrapper" class="col-md-11 pull-right">
-
                 <div
                 data-ng-view id="ng-view" class="view"
                         >
@@ -148,26 +147,25 @@
 
                 $scope.buscarPost=function(){
 
-                    $scope.valores={
-                        'coincidencias':{
-                            'titulo': 'Buscando...',
-                            'contenido': ''
-                        }
-                    };
-
-                    /*alert('/busqueda'+$scope.criterio.toLocaleLowerCase()+'/');
-                    //alert('{% url 'busquedapornombre' %}');
+                    //alert('/busqueda'+$scope.criterio.toLocaleLowerCase()+'/');
                     var parametros = {
                         csrfmiddlewaretoken: '{{ csrf_token }}',
                         "formulario": $('#buscarForm').serialize()
                     };
                     $.ajax({
                         data: parametros,
-                        url: '/busqueda'+$scope.criterio.toLocaleLowerCase()+'/',
+                        url: '{% url 'busquedacriterio' %}',
                         type: 'POST',
                         datatype: 'json',
                         async: true,
                         beforeSend: function () {
+
+                            $scope.valores={
+                                'coincidencias':{
+                                    'titulo': 'Buscando...',
+                                    'contenido': ''
+                                }
+                            };
 
                         },
                         success: function (response) {
@@ -182,7 +180,10 @@
 
                     });
 
-                    */
+                };
+
+                $scope.istring=function(v){
+                  return v.isString;
                 };
 
             }])

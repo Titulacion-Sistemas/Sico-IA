@@ -45,9 +45,7 @@ def home(request):
                 {
                     'user': request.session['usuario'],
                     'sesion': request.session['sesionActiva'],
-                    'modulos': json.dumps(var),
-                    'angOpen': '{{',
-                    'angClose': '}}'
+                    'modulos': json.dumps(var)
                 }
             , context_instance=RequestContext(request))
     except:
@@ -149,3 +147,6 @@ def salir(request):
 
 def principal(request):
     return render_to_response('principal.html', {}, context_instance=RequestContext(request))
+
+
+

@@ -37,15 +37,60 @@
 
             <div id="listaResultados" class="col-md-8">
 
+                <div class="panel panel-info animate-show"
+                        data-ng-show="valores.coincidencias.contenido">
+                    <div class="panel-heading">
+                        {{ angOpen }} valores.coincidencias.titulo {{ angClose }}
+                    </div>
+                    <div class="panel-body">
+
+                        <div style="width: 68px; height: 68px; margin-bottom: 0;"
+                             class="alert alert-info center-block animate-if"
+                             data-ng-if="valores.coincidencias.contenido==''">
+                            <div class="loader-inner ball-clip-rotate-multiple center-block">
+                                <div></div><div></div>
+                            </div>
+                        </div>
+
+                        <div style="width: 68px; height: 68px; margin-bottom: 0;"
+                             class="alert alert-info center-block animate-if"
+                             data-ng-if="valores.coincidencias.contenido!=''">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-condensed table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td data-ng-repeat="(key, value) in valores.coincidencias.contenido[1]" >
+                                                <b>{{ angOpen }} key {{ angClose }}</b>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr onclick="return false;" data-ng-repeat="fila in valores.coincidencias.contenido">
+                                            <td data-ng-repeat="(key, value) in fila" >
+                                                <span data-ng-if="istring(value)">{{ angOpen }} value {{ angClose }}</span>
+                                                <span data-ng-if="!istring(value)">{{ angOpen }} value.calle {{ angClose }}</span>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
 
 
                 <div class="panel panel-info animate-show"
-                        data-ng-show="valores.coincidencias.contenido==''">
+                        data-ng-show="valores.cliente">
                     <div class="panel-heading">{{ angOpen }} valores.coincidencias.titulo {{ angClose }}</div>
                     <div class="panel-body">
                         <div style="width: 68px; height: 68px; margin-bottom: 0;"
                              class="alert alert-info center-block"
-                             data-ng-if="valores.coincidencias.contenido==''">
+                             data-ng-if="valores.cliente.contenido==''">
                             <div class="loader-inner ball-clip-rotate-multiple center-block">
                                 <div></div><div></div>
                             </div>
@@ -53,7 +98,19 @@
                     </div>
                 </div>
 
-
+                <div class="panel panel-info animate-show"
+                        data-ng-show="valores.medidores">
+                    <div class="panel-heading">{{ angOpen }} valores.coincidencias.titulo {{ angClose }}</div>
+                    <div class="panel-body">
+                        <div style="width: 68px; height: 68px; margin-bottom: 0;"
+                             class="alert alert-info center-block"
+                             data-ng-if="valores.medidores.contenido==''">
+                            <div class="loader-inner ball-clip-rotate-multiple center-block">
+                                <div></div><div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>

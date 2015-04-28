@@ -92,6 +92,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TC
 
 TEMPLATE_CONTEXT_PROCESSORS = TC + (
     'django.core.context_processors.request',
+    'Sico_IA.context_processors.angular',
 )
 
 STATICFILES_DIRS = (
