@@ -141,49 +141,32 @@
             .controller('home', ['$scope', function($scope){
             }])
 
-            .controller('busquedas', ['$scope', function($scope){
-
-
+            .controller('busquedas', ['$scope', '$http', '$templateCache',
+            function($scope, $http){
 
                 $scope.buscarPost=function(){
+                     $scope.buscando=true;
+                     $http(
+                         {
+                             method: 'POST',
+                             url: '{% url 'busquedacriterio' %}',
+                             data: {
+                                'formulario': $('#buscarForm').serialize()
+                             }
+                         }
+                     )
+                     .success(function(data) {
+                             console.log(data);
+                             $scope.valores = data;
+                             $scope.buscando=false;
+                         }
+                     )
+                     .error(function(data) {
+                             $scope.valores = data || "Request failed";
+                             $scope.buscando=false;
+                         }
+                     );
 
-                    //alert('/busqueda'+$scope.criterio.toLocaleLowerCase()+'/');
-                    var parametros = {
-                        csrfmiddlewaretoken: '{{ csrf_token }}',
-                        "formulario": $('#buscarForm').serialize()
-                    };
-                    $.ajax({
-                        data: parametros,
-                        url: '{% url 'busquedacriterio' %}',
-                        type: 'POST',
-                        datatype: 'json',
-                        async: true,
-                        beforeSend: function () {
-
-                            $scope.valores={
-                                'coincidencias':{
-                                    'titulo': 'Buscando...',
-                                    'contenido': ''
-                                }
-                            };
-
-                        },
-                        success: function (response) {
-
-                            $scope.valores=response;
-
-                            //alert(response);
-                        },
-                        error: function () {
-                            $scope.valores={};
-                        }
-
-                    });
-
-                };
-
-                $scope.istring=function(v){
-                  return v.isString;
                 };
 
             }])
@@ -242,7 +225,12 @@
                       redirectTo: '/enconstruccion'
                     })
                     ;
-              }]);
+              }])
+
+            .config(['$httpProvider', function($httpProvider) {
+                $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+                $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+            }]);
 
         </script>
     {% endblock %}

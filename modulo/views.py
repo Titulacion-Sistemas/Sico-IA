@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, QueryDict
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from Sico_IA.pComm.busquedas.scriptsBusquedas import buscar
@@ -7,6 +7,7 @@ from ingreso.models import usuario
 from ingreso.views import integracion
 from modulo.models import modulo
 from modulo.forms import busquedas as busq
+from modulo.renderRequest import JSONMiddleware
 
 
 def enconstruccion(request):
@@ -31,14 +32,19 @@ def busquedas(request):
 
 def busquedacriterio(request):
     if request.method == 'POST':
-        form = busquedas(request.POST['formulario'])
+
+        jsn = JSONMiddleware()
+        jsn.process_request(request)
+        print request.POST
+
+        form = busq(data=QueryDict(request.POST['formulario']))
 
         if form.is_valid():
 
             b = buscar(request.session['sesionActiva'])
-            datos = b.busquedaDeTipo(form.data['criterio'], form.data['dato'])
+            datos = b.busquedaDeTipo(str(form.data['criterio']), str(form.data['dato']))
 
-            return {
+            response = {
                 'coincidencias':{
                     'titulo': 'Coincidencias',
                     'contenido': datos['cClientes']
@@ -53,12 +59,23 @@ def busquedacriterio(request):
                 }
             }
         else:
-            return {
+            response = {
                 'coincidencias':{
                     'titulo': 'Error',
                     'contenido': form.errors
                 }
             }
+
+        return HttpResponse(
+                json.dumps(response),
+                content_type="application/json; charset=UTF-8"
+            )
     else:
-        return render_to_response('busquedas/criterio.html', {}, context_instance=RequestContext(request))
+        return render_to_response('busquedas/coincidencias.html', {}, context_instance=RequestContext(request))
+
+
+
+
+
+
 

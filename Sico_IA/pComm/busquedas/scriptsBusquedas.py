@@ -1,6 +1,5 @@
 # coding=utf-8
 
-import decimal
 from django.shortcuts import render_to_response
 import pythoncom
 from Sico_IA.pComm.conexion import manejadorDeConexion
@@ -26,41 +25,41 @@ def newVoltaje(ser):
     return voltaje
 
 
-def llenarCliente(sesion, cli):
-    if isinstance(cli, dict):
-        global lectura
-        lectura = sesion.autECLPS.GetText(8, 35, 9).strip()
-        cli['ci_ruc'] = sesion.autECLPS.GetText(4, 10, 13).strip()
-        cli['cuenta'] = sesion.autECLPS.GetText(3, 27, 7).strip()
-        cli['nombre'] = sesion.autECLPS.GetText(3, 35, 30).strip()
-        #cli['direccion'] = sesion.autECLPS.GetText(14, 18, 50)
-        #cli['interseccion'] = sesion.autECLPS.GetText(15, 18, 50)
-        #cli['urbanizacion'] = sesion.autECLPS.GetText(16, 18, 50)
-        cli['estado'] = sesion.autECLPS.GetText(21, 42, 20).strip()
-        cli['geocodigo'] = str(
-            '%02d.%02d.%02d.%03d.%07d' % (
-                int(sesion.autECLPS.GetText(18, 13, 2)),
-                int(sesion.autECLPS.GetText(18, 45, 2)),
-                int(sesion.autECLPS.GetText(19, 13, 2)),
-                int(sesion.autECLPS.GetText(20, 7, 3)),
-                int(sesion.autECLPS.GetText(20, 73, 7)),
-            )
+def llenarCliente(sesion):
+    cli = {}
+    global lectura
+    lectura = sesion.autECLPS.GetText(8, 35, 9).strip()
+    cli['ci_ruc'] = sesion.autECLPS.GetText(4, 10, 13).strip()
+    cli['cuenta'] = sesion.autECLPS.GetText(3, 27, 7).strip()
+    cli['nombre'] = sesion.autECLPS.GetText(3, 35, 30).strip()
+    #cli['direccion'] = sesion.autECLPS.GetText(14, 18, 50)
+    #cli['interseccion'] = sesion.autECLPS.GetText(15, 18, 50)
+    #cli['urbanizacion'] = sesion.autECLPS.GetText(16, 18, 50)
+    cli['estado'] = sesion.autECLPS.GetText(21, 42, 20).strip()
+    cli['geocodigo'] = str(
+        '%02d.%02d.%02d.%03d.%07d' % (
+            int(sesion.autECLPS.GetText(18, 13, 2)),
+            int(sesion.autECLPS.GetText(18, 45, 2)),
+            int(sesion.autECLPS.GetText(19, 13, 2)),
+            int(sesion.autECLPS.GetText(20, 7, 3)),
+            int(sesion.autECLPS.GetText(20, 73, 7)),
         )
+    )
 
-        cli['ubicacionGeografica'] = {
-            'parroquia': (sesion.autECLPS.GetText(13, 17, 35)).encode('utf-8').strip(),
-            'calle': (sesion.autECLPS.GetText(14, 18, 50)).encode('utf-8').strip(),
-            'interseccion': (sesion.autECLPS.GetText(15, 18, 50)).encode('utf-8').strip(),
-            'urbanizacion':(sesion.autECLPS.GetText(16, 18, 50)).encode('utf-8').strip()
-        }
-        #print cli.ubicacionGeografica
+    cli['ubicacionGeografica'] = {
+        'parroquia': (sesion.autECLPS.GetText(13, 17, 35)).encode('utf-8').strip(),
+        'calle': (sesion.autECLPS.GetText(14, 18, 50)).encode('utf-8').strip(),
+        'interseccion': (sesion.autECLPS.GetText(15, 18, 50)).encode('utf-8').strip(),
+        'urbanizacion':(sesion.autECLPS.GetText(16, 18, 50)).encode('utf-8').strip()
+    }
+    #print cli.ubicacionGeografica
 
     sesion.autECLPS.SendKeys('[pf2]')
     sesion.autECLOIA.WaitForAppAvailable()
     sesion.autECLOIA.WaitForInputReady()
 
-    cli.meses = sesion.autECLPS.GetText(12, 45, 3)
-    cli.deuda = decimal.Decimal(sesion.autECLPS.GetText(15, 22, 12))
+    cli['meses'] = sesion.autECLPS.GetText(12, 45, 3)
+    cli['deuda'] = sesion.autECLPS.GetText(15, 22, 12)
 
     sesion.autECLPS.SendKeys('[pf12]')
     sesion.autECLOIA.WaitForAppAvailable()
@@ -183,16 +182,16 @@ class buscar:
             sesion.autECLPS.SendKeys('[enter]')
             sesion.autECLOIA.WaitForAppAvailable()
             sesion.autECLOIA.WaitForInputReady()
+        sesion.autECLOIA.WaitForAppAvailable()
+        sesion.autECLOIA.WaitForInputReady()
         sesion.autECLPS.SendKeys('[pf2]')
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
 
-        try:
-            coincidencias[0] = llenarCliente(sesion, coincidencias[0])
-        except:
-            coincidencias.append(llenarCliente(sesion, {}))
-        if coincidencias[0].cuenta != cuenta:
-            return None
+        formC = llenarCliente(sesion)
+
+        #if coincidencias[0].cuenta != cuenta:
+        #    return None
 
         sesion.autECLPS.SendKeys('9')
         sesion.autECLPS.SendKeys('[enter]')
@@ -209,8 +208,6 @@ class buscar:
             titulo = sesion.autECLPS.GetText(5, 1, 11)
 
         #print titulo
-
-        formC = coincidencias[0]
 
         data = {
             'cClientes': coincidencias,
@@ -275,9 +272,9 @@ class buscar:
         sesion.autECLOIA.WaitForInputReady()
 
         try:
-            coincidencias.insert(0, llenarCliente(sesion, coincidencias[0]))
+            coincidencias.insert(0, llenarCliente(sesion))
         except:
-            coincidencias.append(llenarCliente(sesion, {}))
+            coincidencias.append(llenarCliente(sesion))
 
         sesion.autECLPS.SendKeys('1')
         sesion.autECLPS.SendKeys('[enter]')
@@ -358,9 +355,9 @@ class buscar:
         sesion.autECLOIA.WaitForInputReady()
 
         try:
-            coincidencias[0] = llenarCliente(sesion, coincidencias[0])
+            coincidencias[0] = llenarCliente(sesion)
         except:
-            coincidencias.append(llenarCliente(sesion, {}))
+            coincidencias.append(llenarCliente(sesion))
 
         sesion.autECLPS.SendKeys('9')
         sesion.autECLPS.SendKeys('[enter]')
@@ -466,9 +463,9 @@ class buscar:
         sesion.autECLOIA.WaitForInputReady()
 
         try:
-            coincidencias.insert(0, llenarCliente(sesion, coincidencias[0]))
+            coincidencias.insert(0, llenarCliente(sesion))
         except:
-            coincidencias.append(llenarCliente(sesion, {}))
+            coincidencias.append(llenarCliente(sesion))
         if coincidencias[0].geocodigo != geocodigo:
             return None
 
@@ -499,10 +496,10 @@ class buscar:
 
     def busquedaDeTipo(self, tipo, data):
         operaciones = {
-            'porcuenta': self.porCuenta,
-            'pormedidor': self.porMedidor,
-            'pornombre': self.porNombre,
-            'porgeocodigo': self.porGeocodigo
+            'porCuenta': self.porCuenta,
+            'porMedidor': self.porMedidor,
+            'porNombre': self.porNombre,
+            'porGeocodigo': self.porGeocodigo
         }
 
         return operaciones[str(tipo)](data)
