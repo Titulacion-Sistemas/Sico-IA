@@ -166,7 +166,10 @@
                              $scope.buscando=false;
                          }
                      );
+                };
 
+                $scope.istring=function(v){
+                    return angular.isString(v);
                 };
 
             }])

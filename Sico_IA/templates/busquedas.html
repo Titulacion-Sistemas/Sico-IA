@@ -39,7 +39,7 @@
                 <div class="panel panel-info animate-show"
                         data-ng-show="buscando">
                     <div class="panel-heading">
-                        {{ angOpen }} valores.coincidencias.titulo {{ angClose }}
+                        Buscando...
                     </div>
                     <div class="panel-body">
 
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-md-8 animate-show"
-                 data-ng-show="valores.coincidencias.contenido.isObject">
+                 data-ng-show="valores.coincidencias.contenido.length>0">
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -62,23 +62,20 @@
                     </div>
                     <div class="panel-body">
 
-                        <div class="table-responsive animate-show"
-                                data-ng-show="valores.coincidencias.contenido.length>0"
-                                >
+                        <div class="table-responsive">
                             <table class="table table-striped table-condensed table-hover">
                                 <thead>
                                     <tr>
-                                        <td data-ng-repeat="(key, value) in valores.coincidencias.contenido[1]" >
-                                            <b>{{ angOpen }} key {{ angClose }}</b>
+                                        <td data-ng-repeat="(key, (key1, value)) in valores.coincidencias.contenido[1]" >
+                                            <b>{{ angOpen }} key1 {{ angClose }}</b>
                                         </td>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    <tr data-ng-repeat="fila in valores.coincidencias.contenido">
-                                        <td data-ng-repeat="(key, value) in fila" >
-                                            <span data-ng-if="value.isString">{{ angOpen }} value {{ angClose }}</span>
-                                            <span data-ng-if="value.isObject">{{ angOpen }} value.calle {{ angClose }}</span>
+                                    <tr data-ng-repeat="(key, valu) in valores.coincidencias.contenido">
+                                        <td data-ng-repeat="(key, value) in valu" >
+                                            <span data-ng-if="istring(value)">{{ angOpen }} value {{ angClose }}</span>
                                         </td>
                                     </tr>
 

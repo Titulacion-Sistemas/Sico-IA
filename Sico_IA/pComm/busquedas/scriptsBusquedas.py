@@ -29,14 +29,14 @@ def llenarCliente(sesion):
     cli = {}
     global lectura
     lectura = sesion.autECLPS.GetText(8, 35, 9).strip()
-    cli['ci_ruc'] = sesion.autECLPS.GetText(4, 10, 13).strip()
-    cli['cuenta'] = sesion.autECLPS.GetText(3, 27, 7).strip()
-    cli['nombre'] = sesion.autECLPS.GetText(3, 35, 30).strip()
+    cli['Ruc/Ci'] = sesion.autECLPS.GetText(4, 10, 13).strip()
+    cli['Cuenta'] = sesion.autECLPS.GetText(3, 27, 7).strip()
+    cli['Nombre'] = sesion.autECLPS.GetText(3, 35, 30).strip()
     #cli['direccion'] = sesion.autECLPS.GetText(14, 18, 50)
-    #cli['interseccion'] = sesion.autECLPS.GetText(15, 18, 50)
-    #cli['urbanizacion'] = sesion.autECLPS.GetText(16, 18, 50)
-    cli['estado'] = sesion.autECLPS.GetText(21, 42, 20).strip()
-    cli['geocodigo'] = str(
+    #cli['Interseccion'] = sesion.autECLPS.GetText(15, 18, 50)
+    #cli['Urbanizacion'] = sesion.autECLPS.GetText(16, 18, 50)
+    cli['Estado'] = sesion.autECLPS.GetText(21, 42, 20).strip()
+    cli['Geocodigo'] = str(
         '%02d.%02d.%02d.%03d.%07d' % (
             int(sesion.autECLPS.GetText(18, 13, 2)),
             int(sesion.autECLPS.GetText(18, 45, 2)),
@@ -46,20 +46,20 @@ def llenarCliente(sesion):
         )
     )
 
-    cli['ubicacionGeografica'] = {
-        'parroquia': (sesion.autECLPS.GetText(13, 17, 35)).encode('utf-8').strip(),
-        'calle': (sesion.autECLPS.GetText(14, 18, 50)).encode('utf-8').strip(),
-        'interseccion': (sesion.autECLPS.GetText(15, 18, 50)).encode('utf-8').strip(),
-        'urbanizacion':(sesion.autECLPS.GetText(16, 18, 50)).encode('utf-8').strip()
+    cli['Direccion'] = {
+        'Parroquia': (sesion.autECLPS.GetText(13, 17, 35)).encode('utf-8').strip(),
+        'Calle': (sesion.autECLPS.GetText(14, 18, 50)).encode('utf-8').strip(),
+        'Interseccion': (sesion.autECLPS.GetText(15, 18, 50)).encode('utf-8').strip(),
+        'Urbanizacion':(sesion.autECLPS.GetText(16, 18, 50)).encode('utf-8').strip()
     }
-    #print cli.ubicacionGeografica
+    #print cli.Direccion
 
     sesion.autECLPS.SendKeys('[pf2]')
     sesion.autECLOIA.WaitForAppAvailable()
     sesion.autECLOIA.WaitForInputReady()
 
-    cli['meses'] = sesion.autECLPS.GetText(12, 45, 3)
-    cli['deuda'] = sesion.autECLPS.GetText(15, 22, 12)
+    cli['Meses'] = sesion.autECLPS.GetText(12, 45, 3)
+    cli['Deuda'] = sesion.autECLPS.GetText(15, 22, 12)
 
     sesion.autECLPS.SendKeys('[pf12]')
     sesion.autECLOIA.WaitForAppAvailable()
@@ -160,20 +160,13 @@ class buscar:
             if sesion.autECLPS.GetText(i, 5, 7).strip() != "":
                 coincidencias.append(
                     {
-                        'id': i - 9,
-                        'cuenta': sesion.autECLPS.GetText(i, 5, 7),
-                        'nombre': sesion.autECLPS.GetText(i, 13, 23),
+                        
+                        '0': {'Cuenta': sesion.autECLPS.GetText(i, 5, 7)},
+                        '1': {'Nombre': sesion.autECLPS.GetText(i, 13, 23)},
+                        '2': {'Direccion': (sesion.autECLPS.GetText(i, 37, 16)).encode('utf-8').strip()},
+                        '3': {'Meses': sesion.autECLPS.GetText(i, 68, 4)},
+                        '4': {'Deuda': sesion.autECLPS.GetText(i, 59, 8)}
 
-                        'ubicacionGeografica': {
-                            'parroquia': '',
-                            'calle': (sesion.autECLPS.GetText(i, 37, 16)).encode('utf-8').strip(),
-                            'interseccion': '',
-                            'urbanizacion': ''
-                        },
-
-                        #direccion=sesion.autECLPS.GetText(i, 37, 16),
-                        'deuda': sesion.autECLPS.GetText(i, 59, 8),
-                        'meses': sesion.autECLPS.GetText(i, 68, 4)
                     }
                 )
 
@@ -243,21 +236,11 @@ class buscar:
             if sesion.autECLPS.GetText(i, 8, 11).strip() != "":
                 coincidencias.append(
                     {
-                        'id': i - 9,
-
-                        'ubicacionGeografica': {
-                            'parroquia': '',
-                            'calle': (sesion.autECLPS.GetText(i, 58, 20)).encode('utf-8').strip(),
-                            'interseccion': '',
-                            'urbanizacion': (sesion.autECLPS.GetText(i, 8, 11)).encode('utf-8').strip()
-                        },
-
-                        #urbanizacion=sesion.autECLPS.GetText(i, 8, 11),
-                        #direccion=sesion.autECLPS.GetText(i, 58, 20),
-                        'estado': sesion.autECLPS.GetText(i, 20, 3),
-                        'cuenta': sesion.autECLPS.GetText(i, 24, 7),
-                        'nombre': sesion.autECLPS.GetText(i, 32, 25),
-
+                        '0': {'Medidor': (sesion.autECLPS.GetText(i, 8, 11)).encode('utf-8').strip()},
+                        '1': {'Estado': sesion.autECLPS.GetText(i, 20, 3)},
+                        '2': {'Cuenta': sesion.autECLPS.GetText(i, 24, 7)},
+                        '3': {'Nombre': sesion.autECLPS.GetText(i, 32, 25)},
+                        '4': {'Direccion': (sesion.autECLPS.GetText(i, 58, 20)).encode('utf-8').strip()}
                     }
                 )
 
@@ -271,10 +254,7 @@ class buscar:
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
 
-        try:
-            coincidencias.insert(0, llenarCliente(sesion))
-        except:
-            coincidencias.append(llenarCliente(sesion))
+        formC = llenarCliente(sesion)
 
         sesion.autECLPS.SendKeys('1')
         sesion.autECLPS.SendKeys('[enter]')
@@ -293,8 +273,6 @@ class buscar:
             sesion.autECLOIA.WaitForAppAvailable()
             sesion.autECLOIA.WaitForInputReady()
             titulo = sesion.autECLPS.GetText(5, 1, 11)
-
-        formC = coincidencias[0]
 
         data = {
             'cClientes': coincidencias,
@@ -328,20 +306,13 @@ class buscar:
             if sesion.autECLPS.GetText(i, 5, 22).strip() != "":
                 coincidencias.append(
                     {
-                        'id': i - 9,
-                        'nombre': sesion.autECLPS.GetText(i, 5, 22),
+                        
+                        '0': {'Nombre': sesion.autECLPS.GetText(i, 5, 22)},
+                        '1': {'Cuenta': sesion.autECLPS.GetText(i, 46, 7)},
+                        '2': {'Direccion': (sesion.autECLPS.GetText(i, 28, 17)).encode('utf-8').strip()},
+                        '3': {'Meses': sesion.autECLPS.GetText(i, 68, 3)},
+                        '4': {'Deuda': sesion.autECLPS.GetText(i, 59, 8)}
 
-                        'ubicacionGeografica': {
-                            'parroquia': '',
-                            'calle': (sesion.autECLPS.GetText(i, 28, 17)).encode('utf-8').strip(),
-                            'interseccion': '',
-                            'urbanizacion': ''
-                        },
-
-                        #direccion=sesion.autECLPS.GetText(i, 28, 17),
-                        'cuenta': sesion.autECLPS.GetText(i, 46, 7),
-                        'deuda': sesion.autECLPS.GetText(i, 59, 8),
-                        'meses': sesion.autECLPS.GetText(i, 68, 3)
                     }
                 )
 
@@ -354,10 +325,7 @@ class buscar:
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
 
-        try:
-            coincidencias[0] = llenarCliente(sesion)
-        except:
-            coincidencias.append(llenarCliente(sesion))
+        formC = llenarCliente(sesion)
 
         sesion.autECLPS.SendKeys('9')
         sesion.autECLPS.SendKeys('[enter]')
@@ -372,8 +340,6 @@ class buscar:
             sesion.autECLOIA.WaitForAppAvailable()
             sesion.autECLOIA.WaitForInputReady()
             titulo = sesion.autECLPS.GetText(5, 1, 11)
-
-        formC = coincidencias[0]
 
         data = {
             'cClientes': coincidencias,
@@ -435,21 +401,12 @@ class buscar:
             if sesion.autECLPS.GetText(i, 5, 7).strip() != "":
                 coincidencias.append(
                     {
-                        'id': i - 9,
-
-                        'ubicacionGeografica': {
-                            'parroquia': '',
-                            'calle': (sesion.autECLPS.GetText(i, 38, 14)).encode('utf-8').strip(),
-                            'interseccion': ruta + '.' +(sesion.autECLPS.GetText(i, 5, 7)).encode('utf-8').strip(),
-                            'urbanizacion': (sesion.autECLPS.GetText(i, 53, 10)).encode('utf-8').strip()
-                        },
-
-                        #interseccion=ruta+'.'+str(sesion.autECLPS.GetText(i, 5, 7)).strip(),
-                        #direccion=sesion.autECLPS.GetText(i, 38, 14),
-                        #urbanizacion=sesion.autECLPS.GetText(i, 53, 10),
-                        'cuenta': sesion.autECLPS.GetText(i, 13, 7),
-                        'nombre': sesion.autECLPS.GetText(i, 21, 16),
-                        'deuda': sesion.autECLPS.GetText(i, 68, 8)
+                        '0': {'Geocodigo': ruta + '.' +(sesion.autECLPS.GetText(i, 5, 7)).encode('utf-8').strip()},
+                        '1': {'Urbanizacion': (sesion.autECLPS.GetText(i, 53, 10)).encode('utf-8').strip()},
+                        '2': {'Cuenta': sesion.autECLPS.GetText(i, 13, 7)},
+                        '3': {'Nombre': sesion.autECLPS.GetText(i, 21, 16)},
+                        '4': {'Direccion': (sesion.autECLPS.GetText(i, 38, 14)).encode('utf-8').strip()},
+                        '5': {'Deuda': sesion.autECLPS.GetText(i, 68, 8)}
                     }
                 )
 
@@ -462,10 +419,8 @@ class buscar:
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
 
-        try:
-            coincidencias.insert(0, llenarCliente(sesion))
-        except:
-            coincidencias.append(llenarCliente(sesion))
+        formC = llenarCliente(sesion)
+
         if coincidencias[0].geocodigo != geocodigo:
             return None
 
@@ -482,8 +437,6 @@ class buscar:
             sesion.autECLOIA.WaitForAppAvailable()
             sesion.autECLOIA.WaitForInputReady()
             titulo = sesion.autECLPS.GetText(5, 1, 11)
-
-        formC = coincidencias[0]
 
         data = {
             'cClientes': coincidencias,
