@@ -110,8 +110,7 @@
                 $scope.menuLateral=[];
                 $scope.sidebar=function(opciones, seleccion){
 
-                    $scope.menuLateral=opciones; /*arreglo de dicts*/
-                    /*$scope.sidebarSeleccionado= seleccion; dict*/
+                    $scope.menuLateral=opciones;
                     if (opciones.length > 0 && seleccion.length > 0)
                         $scope.seleccion(seleccion);
                 };
@@ -146,6 +145,7 @@
 
                 $scope.buscarPost=function(){
                      $scope.buscando=true;
+                     $scope.valores ={};
                      $http(
                          {
                              method: 'POST',
@@ -164,12 +164,23 @@
                      .error(function(data) {
                              $scope.valores = data || "Request failed";
                              $scope.buscando=false;
+                             $scope.valores ={}
                          }
                      );
                 };
 
-                $scope.istring=function(v){
-                    return angular.isString(v);
+                $scope.getAttributeByIndex =function (obj, index){
+                    var i = 0;
+                    for (var attr in obj){
+                        if (index === i){
+                            return {
+                                key: attr,
+                                value: obj[attr]
+                            };
+                        }
+                        i++;
+                    }
+                    return null;
                 };
 
             }])
@@ -234,6 +245,8 @@
                 $httpProvider.defaults.xsrfCookieName = 'csrftoken';
                 $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
             }]);
+
+
 
         </script>
     {% endblock %}

@@ -26,40 +26,35 @@ def newVoltaje(ser):
 
 
 def llenarCliente(sesion):
-    cli = {}
+
     global lectura
     lectura = sesion.autECLPS.GetText(8, 35, 9).strip()
-    cli['Ruc/Ci'] = sesion.autECLPS.GetText(4, 10, 13).strip()
-    cli['Cuenta'] = sesion.autECLPS.GetText(3, 27, 7).strip()
-    cli['Nombre'] = sesion.autECLPS.GetText(3, 35, 30).strip()
-    #cli['direccion'] = sesion.autECLPS.GetText(14, 18, 50)
-    #cli['Interseccion'] = sesion.autECLPS.GetText(15, 18, 50)
-    #cli['Urbanizacion'] = sesion.autECLPS.GetText(16, 18, 50)
-    cli['Estado'] = sesion.autECLPS.GetText(21, 42, 20).strip()
-    cli['Geocodigo'] = str(
-        '%02d.%02d.%02d.%03d.%07d' % (
-            int(sesion.autECLPS.GetText(18, 13, 2)),
-            int(sesion.autECLPS.GetText(18, 45, 2)),
-            int(sesion.autECLPS.GetText(19, 13, 2)),
-            int(sesion.autECLPS.GetText(20, 7, 3)),
-            int(sesion.autECLPS.GetText(20, 73, 7)),
-        )
-    )
-
-    cli['Direccion'] = {
-        'Parroquia': (sesion.autECLPS.GetText(13, 17, 35)).encode('utf-8').strip(),
-        'Calle': (sesion.autECLPS.GetText(14, 18, 50)).encode('utf-8').strip(),
-        'Interseccion': (sesion.autECLPS.GetText(15, 18, 50)).encode('utf-8').strip(),
-        'Urbanizacion':(sesion.autECLPS.GetText(16, 18, 50)).encode('utf-8').strip()
+    cli = {
+        '0': {'Ruc/Ci': sesion.autECLPS.GetText(4, 10, 13).strip()},
+        '1': {'Cuenta': sesion.autECLPS.GetText(3, 27, 7).strip()},
+        '2': {'Nombre': sesion.autECLPS.GetText(3, 35, 30).strip()},
+        '3': {'Estado': sesion.autECLPS.GetText(21, 42, 20).strip()},
+        '4': {'Geocodigo': str(
+            '%02d.%02d.%02d.%03d.%07d' % (
+                int(sesion.autECLPS.GetText(18, 13, 2)),
+                int(sesion.autECLPS.GetText(18, 45, 2)),
+                int(sesion.autECLPS.GetText(19, 13, 2)),
+                int(sesion.autECLPS.GetText(20, 7, 3)),
+                int(sesion.autECLPS.GetText(20, 73, 7)),
+            )
+        )},
+        '5': {'Parroquia': (sesion.autECLPS.GetText(13, 17, 35)).encode('utf-8').strip()},
+        '6': {'Direccion': (sesion.autECLPS.GetText(14, 18, 50)).encode('utf-8').strip()},
+        '7': {'Interseccion': (sesion.autECLPS.GetText(15, 18, 50)).encode('utf-8').strip()},
+        '8': {'Urbanizacion':(sesion.autECLPS.GetText(16, 18, 50)).encode('utf-8').strip()}
     }
-    #print cli.Direccion
 
     sesion.autECLPS.SendKeys('[pf2]')
     sesion.autECLOIA.WaitForAppAvailable()
     sesion.autECLOIA.WaitForInputReady()
 
-    cli['Meses'] = sesion.autECLPS.GetText(12, 45, 3)
-    cli['Deuda'] = sesion.autECLPS.GetText(15, 22, 12)
+    cli['9'] = {'Meses': sesion.autECLPS.GetText(12, 45, 3).strip()}
+    cli['10'] = {'Deuda': sesion.autECLPS.GetText(15, 22, 12).strip()}
 
     sesion.autECLPS.SendKeys('[pf12]')
     sesion.autECLOIA.WaitForAppAvailable()
@@ -101,22 +96,22 @@ def llenarMedidores(sesion):
                 miSerie='-'
             medidores.append(
                 {
-                    'marca': sesion.autECLPS.GetText(6, 29, 20).strip(),
-                    'tecnologia': sesion.autECLPS.GetText(16, 29, 18).strip(),
-                    'tension': (sesion.autECLPS.GetText(17, 29, 23)).encode('utf-8'),
-                    'amperaje': sesion.autECLPS.GetText(18, 29, 17).strip(),
-                    'fechaDeInstalacion': sesion.autECLPS.GetText(8, 29, 10),
-                    'fechaDeDesinstalacion': sesion.autECLPS.GetText(9, 29, 10),
-                    'lecturaDeInstalacion': sesion.autECLPS.GetText(8, 68, 9).strip(),
-                    'lecturaDeDesinstalacion': sesion.autECLPS.GetText(9, 68, 9).strip(),
-                    'fabrica': sesion.autECLPS.GetText(7, 29, 11).strip(),
-                    'serie': miSerie,
-                    'voltaje': miVoltaje,
-                    'lectura': lect,
-                    'tipo': sesion.autECLPS.GetText(5, 29, 16).strip(),
-                    'digitos': sesion.autECLPS.GetText(11, 29, 2).strip(),
-                    'fases': sesion.autECLPS.GetText(11, 68, 2).strip(),
-                    'hilos': sesion.autECLPS.GetText(12, 29, 2).strip()
+                    '0': {'fabrica': sesion.autECLPS.GetText(7, 29, 11).strip()},
+                    '1': {'serie': miSerie},
+                    '2': {'voltaje': miVoltaje},
+                    '3': {'marca': sesion.autECLPS.GetText(6, 29, 20).strip()},
+                    '4': {'lectura': lect},
+                    '5': {'tecnologia': sesion.autECLPS.GetText(16, 29, 18).strip()},
+                    '6': {'tension': (sesion.autECLPS.GetText(17, 29, 23)).encode('utf-8')},
+                    '7': {'amperaje': sesion.autECLPS.GetText(18, 29, 17).strip()},
+                    '8': {'fechaDeInstalacion': sesion.autECLPS.GetText(8, 29, 10)},
+                    '9': {'fechaDeDesinstalacion': sesion.autECLPS.GetText(9, 29, 10)},
+                    '10': {'lecturaDeInstalacion': sesion.autECLPS.GetText(8, 68, 9).strip()},
+                    '11': {'lecturaDeDesinstalacion': sesion.autECLPS.GetText(9, 68, 9).strip()},
+                    '12': {'tipo': sesion.autECLPS.GetText(5, 29, 16).strip()},
+                    '13': {'digitos': sesion.autECLPS.GetText(11, 29, 2).strip()},
+                    '14': {'fases': sesion.autECLPS.GetText(11, 68, 2).strip()},
+                    '15': {'hilos': sesion.autECLPS.GetText(12, 29, 2).strip()}
                 }
             )
             sesion.autECLPS.SendKeys("[pf12]")
