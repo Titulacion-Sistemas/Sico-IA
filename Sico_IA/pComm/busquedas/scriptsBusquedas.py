@@ -121,7 +121,7 @@ def llenarMedidores(sesion):
         sesion.autECLPS.SendKeys("[down]")
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
-        it += 1
+        it = it + 1
         fab = sesion.autECLPS.GetText(it, 28, 1)
 
     return medidores
