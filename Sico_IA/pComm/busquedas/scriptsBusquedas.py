@@ -84,40 +84,39 @@ def llenarMedidores(sesion):
         else:
             lect = '-'
 
-        if actualmenteInstalado:
-            sesion.autECLPS.SendKeys("1")
-            sesion.autECLPS.SendKeys("[enter]")
-            sesion.autECLOIA.WaitForAppAvailable()
-            sesion.autECLOIA.WaitForInputReady()
-            sesion.autECLPS.SendKeys("[down]")
-            miSerie = sesion.autECLPS.GetText(10, 29, 11).strip()
-            miVoltaje = newVoltaje(miSerie)
-            if not miSerie:
-                miSerie='-'
-            medidores.append(
-                {
-                    '0': {'fabrica': sesion.autECLPS.GetText(7, 29, 11).strip()},
-                    '1': {'serie': miSerie},
-                    '2': {'voltaje': miVoltaje},
-                    '3': {'marca': sesion.autECLPS.GetText(6, 29, 20).strip()},
-                    '4': {'lectura': lect},
-                    '5': {'tecnologia': sesion.autECLPS.GetText(16, 29, 18).strip()},
-                    '6': {'tension': (sesion.autECLPS.GetText(17, 29, 23)).encode('utf-8')},
-                    '7': {'amperaje': sesion.autECLPS.GetText(18, 29, 17).strip()},
-                    '8': {'fechaDeInstalacion': sesion.autECLPS.GetText(8, 29, 10)},
-                    '9': {'fechaDeDesinstalacion': sesion.autECLPS.GetText(9, 29, 10)},
-                    '10': {'lecturaDeInstalacion': sesion.autECLPS.GetText(8, 68, 9).strip()},
-                    '11': {'lecturaDeDesinstalacion': sesion.autECLPS.GetText(9, 68, 9).strip()},
-                    '12': {'tipo': sesion.autECLPS.GetText(5, 29, 16).strip()},
-                    '13': {'digitos': sesion.autECLPS.GetText(11, 29, 2).strip()},
-                    '14': {'fases': sesion.autECLPS.GetText(11, 68, 2).strip()},
-                    '15': {'hilos': sesion.autECLPS.GetText(12, 29, 2).strip()}
-                }
-            )
-            sesion.autECLPS.SendKeys("[pf12]")
-            sesion.autECLOIA.WaitForAppAvailable()
-            sesion.autECLOIA.WaitForInputReady()
-            #sesion.autECLPS.Wait(900)
+        sesion.autECLPS.SendKeys("1")
+        sesion.autECLPS.SendKeys("[enter]")
+        sesion.autECLOIA.WaitForAppAvailable()
+        sesion.autECLOIA.WaitForInputReady()
+        sesion.autECLPS.SendKeys("[down]")
+        miSerie = sesion.autECLPS.GetText(10, 29, 11).strip()
+        miVoltaje = newVoltaje(miSerie)
+        if not miSerie:
+            miSerie='-'
+        medidores.append(
+            {
+                '0': {'Fabrica': sesion.autECLPS.GetText(7, 29, 11).strip()},
+                '1': {'Serie': miSerie},
+                '2': {'Voltaje': miVoltaje},
+                '3': {'Marca': sesion.autECLPS.GetText(6, 29, 20).strip()},
+                '4': {'Lectura': lect},
+                '5': {'Tecnologia': sesion.autECLPS.GetText(16, 29, 18).strip()},
+                '6': {'Tension': (sesion.autECLPS.GetText(17, 29, 23)).encode('utf-8')},
+                '7': {'Amperaje': sesion.autECLPS.GetText(18, 29, 17).strip()},
+                '8': {'Fecha In.': sesion.autECLPS.GetText(8, 29, 10)},
+                '9': {'Fecha Des.': sesion.autECLPS.GetText(9, 29, 10)},
+                '10': {'Lect. In.': sesion.autECLPS.GetText(8, 68, 9).strip()},
+                '11': {'Lect. Des.': sesion.autECLPS.GetText(9, 68, 9).strip()},
+                '12': {'Tipo': sesion.autECLPS.GetText(5, 29, 16).strip()},
+                '13': {'Digitos': sesion.autECLPS.GetText(11, 29, 2).strip()},
+                '14': {'Fases': sesion.autECLPS.GetText(11, 68, 2).strip()},
+                '15': {'Hilos': sesion.autECLPS.GetText(12, 29, 2).strip()}
+            }
+        )
+        sesion.autECLPS.SendKeys("[pf12]")
+        sesion.autECLOIA.WaitForAppAvailable()
+        sesion.autECLOIA.WaitForInputReady()
+        #sesion.autECLPS.Wait(900)
         sesion.autECLPS.SendKeys("[down]")
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
@@ -198,9 +197,21 @@ class buscar:
         #print titulo
 
         data = {
-            'cClientes': coincidencias,
-            'formCliente': formC,
-            'cMedidores': medidores,
+            'coincidencias':{
+                'titulo': 'Coincidencias',
+                'contenido': coincidencias,
+                'show': True
+            },
+            'cliente':{
+                'titulo': 'Datos de Cliente',
+                'contenido': formC,
+                'show': True
+            },
+            'medidores':{
+                'titulo': 'Medidores del Cliente',
+                'contenido': medidores,
+                'show': True
+            }
         }
 
         return data
@@ -416,8 +427,8 @@ class buscar:
 
         formC = llenarCliente(sesion)
 
-        if coincidencias[0].geocodigo != geocodigo:
-            return None
+        #if coincidencias[0].geocodigo != geocodigo:
+        #    return None
 
         sesion.autECLPS.SendKeys('9')
         sesion.autECLPS.SendKeys('[enter]')

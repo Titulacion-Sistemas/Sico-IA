@@ -95,7 +95,7 @@
                         {{ angOpen }} valores.cliente.titulo {{ angClose }}
                     </div>
                     <div class="panel-body">
-                        <div class="panel panel-info" data-ng-show="valores.medidores.contenido.length>0">
+                        <div class="panel panel-info animate-show" data-ng-show="valores.medidores.contenido.length>0">
                             <div class="panel-heading">
                                 {{ angOpen }} valores.medidores.titulo {{ angClose }}
                             </div>
@@ -120,17 +120,17 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr data-ng-repeat="(key, value) in valores.medidores.contenido">
-                                                <td>
+                                            <tr data-ng-repeat="(key, value) in valores.medidores.contenido" style="cursor: pointer;">
+                                                <td data-ng-click="medidorSeleccionado=$index">
                                                     <span>{{ angOpen }} getAttributeByIndex(value['0'], 0).value {{ angClose }}</span>
                                                 </td>
-                                                <td>
+                                                <td data-ng-click="medidorSeleccionado=$index">
                                                     <span>{{ angOpen }} getAttributeByIndex(value['1'], 0).value {{ angClose }}</span>
                                                 </td>
-                                                <td>
+                                                <td data-ng-click="medidorSeleccionado=$index">
                                                     <span>{{ angOpen }} getAttributeByIndex(value['8'], 0).value {{ angClose }}</span>
                                                 </td>
-                                                <td>
+                                                <td data-ng-click="medidorSeleccionado=$index">
                                                     <span>{{ angOpen }} getAttributeByIndex(value['9'], 0).value {{ angClose }}</span>
                                                 </td>
                                             </tr>
@@ -158,13 +158,26 @@
 
             <div class="col-md-6">
 
-                <div class="panel panel-info" data-ng-show="valores.medidores.contenido.length>0">
+                <div class="panel panel-info animate-show"
+                     data-ng-repeat="medidor in valores.medidores.contenido"
+                     data-ng-show="medidor['9']['Fecha Des.'] == ' 0/00/0000' || medidorSeleccionado==$index"
+                     >
                     <div class="panel-heading">
-                        {{ angOpen }} valores.medidores.titulo {{ angClose }}
+                        <b>Medidor: {{ angOpen }} medidor['0'].Fabrica {{ angClose }}</b>
                     </div>
                     <div class="panel-body">
 
-
+                        <form class="form-horizontal">
+                            <div data-ng-repeat="(key, value) in medidor" class="form-group">
+                                <label class="col-md-2 control-label">
+                                    {{ angOpen }} getAttributeByIndex(value, 0).key {{ angClose }}
+                                </label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control"
+                                         readonly="true" data-ng-model="getAttributeByIndex(value, 0).value">
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                 </div>

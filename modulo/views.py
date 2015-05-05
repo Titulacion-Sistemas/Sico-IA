@@ -44,22 +44,8 @@ def busquedacriterio(request):
             b = buscar(request.session['sesionActiva'])
             datos = b.busquedaDeTipo(str(form.data['criterio']), str(form.data['dato']))
 
-            response = {
-                'coincidencias':{
-                    'titulo': 'Coincidencias',
-                    'contenido': datos['cClientes']
-                },
-                'cliente':{
-                    'titulo': 'Datos de Cliente',
-                    'contenido': datos['formCliente']
-                },
-                'medidores':{
-                    'titulo': 'Medidores del Cliente',
-                    'contenido': datos['cMedidores']
-                }
-            }
         else:
-            response = {
+            datos = {
                 'coincidencias':{
                     'titulo': 'Error',
                     'contenido': form.errors
@@ -67,7 +53,7 @@ def busquedacriterio(request):
             }
 
         return HttpResponse(
-                json.dumps(response),
+                json.dumps(datos),
                 content_type="application/json; charset=UTF-8"
             )
     else:
