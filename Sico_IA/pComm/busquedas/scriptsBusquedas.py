@@ -281,9 +281,21 @@ class buscar:
             titulo = sesion.autECLPS.GetText(5, 1, 11)
 
         data = {
-            'cClientes': coincidencias,
-            'formCliente': formC,
-            'cMedidores': medidores,
+            'coincidencias':{
+                'titulo': 'Coincidencias',
+                'contenido': coincidencias,
+                'show': True
+            },
+            'cliente':{
+                'titulo': 'Datos de Cliente',
+                'contenido': formC,
+                'show': True
+            },
+            'medidores':{
+                'titulo': 'Medidores del Cliente',
+                'contenido': medidores,
+                'show': True
+            }
         }
 
         return data
@@ -348,9 +360,21 @@ class buscar:
             titulo = sesion.autECLPS.GetText(5, 1, 11)
 
         data = {
-            'cClientes': coincidencias,
-            'formCliente': formC,
-            'cMedidores': medidores,
+            'coincidencias':{
+                'titulo': 'Coincidencias',
+                'contenido': coincidencias,
+                'show': True
+            },
+            'cliente':{
+                'titulo': 'Datos de Cliente',
+                'contenido': formC,
+                'show': True
+            },
+            'medidores':{
+                'titulo': 'Medidores del Cliente',
+                'contenido': medidores,
+                'show': True
+            }
         }
 
         return data
@@ -445,9 +469,21 @@ class buscar:
             titulo = sesion.autECLPS.GetText(5, 1, 11)
 
         data = {
-            'cClientes': coincidencias,
-            'formCliente': formC,
-            'cMedidores': medidores,
+            'coincidencias':{
+                'titulo': 'Coincidencias',
+                'contenido': coincidencias,
+                'show': True
+            },
+            'cliente':{
+                'titulo': 'Datos de Cliente',
+                'contenido': formC,
+                'show': True
+            },
+            'medidores':{
+                'titulo': 'Medidores del Cliente',
+                'contenido': medidores,
+                'show': True
+            }
         }
 
         return data
