@@ -171,6 +171,11 @@
 
                 $scope.medidorSeleccionado=-1;
 
+                $scope.seleccionDeMedidor=function(indice){
+                    console.log(indice);
+                    $scope.medidorSeleccionado=indice;
+                };
+
                 $scope.getAttributeByIndex =function (obj, index){
                     var i = 0;
                     for (var attr in obj){

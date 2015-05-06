@@ -120,17 +120,19 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr data-ng-repeat="(key, value) in valores.medidores.contenido" style="cursor: pointer;">
-                                                <td data-ng-click="medidorSeleccionado=$index">
+                                            <tr data-ng-repeat="(key, value) in valores.medidores.contenido"
+                                                style="cursor: pointer;"
+                                                data-ng-click="seleccionDeMedidor($index)">
+                                                <td>
                                                     <span>{{ angOpen }} getAttributeByIndex(value['0'], 0).value {{ angClose }}</span>
                                                 </td>
-                                                <td data-ng-click="medidorSeleccionado=$index">
+                                                <td>
                                                     <span>{{ angOpen }} getAttributeByIndex(value['1'], 0).value {{ angClose }}</span>
                                                 </td>
-                                                <td data-ng-click="medidorSeleccionado=$index">
+                                                <td>
                                                     <span>{{ angOpen }} getAttributeByIndex(value['8'], 0).value {{ angClose }}</span>
                                                 </td>
-                                                <td data-ng-click="medidorSeleccionado=$index">
+                                                <td>
                                                     <span>{{ angOpen }} getAttributeByIndex(value['9'], 0).value {{ angClose }}</span>
                                                 </td>
                                             </tr>
