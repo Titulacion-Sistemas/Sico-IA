@@ -173,6 +173,11 @@
                      );
                 };
 
+                $scope.mostrar=function(str){
+                    valores[''+str]['show']=!valores[''+str]['show'];
+                    return valores[''+str]['show'];
+                };
+
                 $scope.medidorSeleccionado=-1;
 
                 $scope.seleccionDeMedidor=function(indice){

@@ -55,10 +55,14 @@
                  data-ng-show="valores.coincidencias.contenido.length>0">
 
                 <div class="panel panel-info">
-                    <div class="panel-heading">
+                    <div class="panel-heading mano" data-ng-click="mostrar('coincidencias')">
                         {{ angOpen }} valores.coincidencias.titulo {{ angClose }}
+                        <span data-ng-class="{
+                        'navbar-right glyphicon glyphicon-minus icon-white': valores.coincidencias.show
+                        'navbar-right glyphicon glyphicon-plus icon-white': !valores.coincidencias.show
+                        }"></span>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" data-ng-show="valores.coincidencias.show">
 
                         <div class="table-responsive">
                             <table class="table table-striped table-condensed table-hover">
@@ -91,10 +95,14 @@
             <div class="col-md-6">
 
                 <div class="panel panel-info" data-ng-show="valores.cliente.contenido">
-                    <div class="panel-heading">
+                    <div class="panel-heading mano" data-ng-click="mostrar('cliente')">
                         {{ angOpen }} valores.cliente.titulo {{ angClose }}
+                        <span data-ng-class="{
+                        'navbar-right glyphicon glyphicon-minus icon-white': valores.cliente.show
+                        'navbar-right glyphicon glyphicon-plus icon-white': !valores.cliente.show
+                        }"></span>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" data-ng-show="valores.cliente.show">
                         <div class="panel panel-info animate-show" data-ng-show="valores.medidores.contenido.length>0">
                             <div class="panel-heading">
                                 {{ angOpen }} valores.medidores.titulo {{ angClose }}
@@ -164,10 +172,14 @@
                      data-ng-repeat="medidor in valores.medidores.contenido"
                      data-ng-if="(medidor['9']['Fecha Des.'] == ' 0/00/0000' && medidorSeleccionado==-1) || medidorSeleccionado==$index"
                      >
-                    <div class="panel-heading">
+                    <div class="panel-heading mano" data-ng-click="mostrar('medidores')">
                         <b>Medidor: {{ angOpen }} medidor['0'].Fabrica {{ angClose }}</b>
+                        <span data-ng-class="{
+                        'navbar-right glyphicon glyphicon-minus icon-white': valores.medidores.show
+                        'navbar-right glyphicon glyphicon-plus icon-white': !valores.medidores.show
+                        }"></span>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" data-ng-show="valores.medidores.show">
 
                         <form class="form-horizontal">
                             <div data-ng-repeat="(key, value) in medidor" class="form-group">
