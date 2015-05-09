@@ -4,8 +4,8 @@
     <list default="true" id="533e9d67-9486-4841-9f22-768583debd8a" name="Default" comment="" />
     <ignored path="Sico_IA.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/busquedas.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1431124705536" ignored="false" />
-    <file path="/home.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1431124152362" ignored="false" />
+    <file path="/busquedas.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1431197856001" ignored="false" />
+    <file path="/home.html" changelist="533e9d67-9486-4841-9f22-768583debd8a" time="1431197683302" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,25 +51,25 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
+            <state line="70" column="0" selection-start="2744" selection-end="2744" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="51" selection-start="7446" selection-end="7446" vertical-scroll-proportion="-8.5">
+            <state line="11" column="24" selection-start="377" selection-end="393" vertical-scroll-proportion="0.34517765">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="busquedas.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="busquedas.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/busquedas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="85" selection-start="8980" selection-end="8980" vertical-scroll-proportion="0.18426104">
+            <state line="58" column="74" selection-start="2435" selection-end="2435" vertical-scroll-proportion="-7.0784316">
               <folding />
             </state>
           </provider>
@@ -117,8 +117,8 @@
         <option value="$PROJECT_DIR$/static/css/jhonsson.css" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/base.html" />
         <option value="$USER_HOME$/Desktop/SlidePushMenus/index.html" />
-        <option value="$PROJECT_DIR$/Sico_IA/templates/home.html" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/busquedas.html" />
+        <option value="$PROJECT_DIR$/Sico_IA/templates/home.html" />
       </list>
     </option>
   </component>
@@ -497,6 +497,13 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -594,18 +601,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13560607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2871212" sideWeight="0.78156996" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2962121" sideWeight="0.78327644" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22525597" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21843003" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21672355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -754,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modulo/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="983" selection-end="983" vertical-scroll-proportion="0.0">
@@ -775,16 +775,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="51" selection-start="7446" selection-end="7446" vertical-scroll-proportion="-8.5">
+        <state line="70" column="0" selection-start="2744" selection-end="2744" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sico_IA/templates/busquedas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="85" selection-start="8980" selection-end="8980" vertical-scroll-proportion="0.18426104">
+        <state line="58" column="74" selection-start="2435" selection-end="2435" vertical-scroll-proportion="-7.0784316">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="24" selection-start="377" selection-end="393" vertical-scroll-proportion="0.34517765">
           <folding />
         </state>
       </provider>

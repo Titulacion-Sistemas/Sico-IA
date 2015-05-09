@@ -9,8 +9,9 @@
         <div id="header" class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#sidebar-wrapper"
+                        data-ng-click=""
                         data-ng-show="menuLateral.length>0">
-                    <i class="glyphicon glyphicon-align-right"></i>
+                    <i class="glyphicon glyphicon-collapse-down"></i>
                 </button>
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <i class="glyphicon glyphicon-chevron-down"></i>
@@ -118,6 +119,10 @@
                     if (opciones.length > 0 && seleccion.length > 0)
                         $scope.seleccion(seleccion);
                 };
+                $scope.menuMovil={
+                    'menu':false,
+                    'sidebar':false
+                };
                 $scope.seleccion=function(seleccion){
 
                     if($scope.menuLateral.length > 0){
@@ -171,11 +176,6 @@
                              $scope.valores ={}
                          }
                      );
-                };
-
-                $scope.mostrar=function(str){
-                    valores[''+str]['show']=!valores[''+str]['show'];
-                    return valores[''+str]['show'];
                 };
 
                 $scope.medidorSeleccionado=-1;
