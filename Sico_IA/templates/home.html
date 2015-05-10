@@ -9,12 +9,19 @@
         <div id="header" class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#sidebar-wrapper"
-                        data-ng-click=""
+                        data-ng-click="menuMovil.sidebar=!menuMovil.sidebar"
                         data-ng-show="menuLateral.length>0">
-                    <i class="glyphicon glyphicon-collapse-down"></i>
+                    <i data-ng-class="{
+                    'glyphicon glyphicon-collapse-down': !menuMovil.sidebar,
+                    'glyphicon glyphicon-collapse-up': menuMovil.sidebar
+                    }"></i>
                 </button>
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                    <i class="glyphicon glyphicon-chevron-down"></i>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                        data-ng-click="menuMovil.menu=!menuMovil.menu">
+                    <i data-ng-class="{
+                    'glyphicon glyphicon-chevron-down': !menuMovil.menu,
+                    'glyphicon glyphicon-chevron-up': menuMovil.menu
+                    }"></i>
                 </button>
                 <a class="navbar-brand ng-scope"
                    data-ng-href="#/"
