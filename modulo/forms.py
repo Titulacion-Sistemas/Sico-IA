@@ -40,24 +40,25 @@ class busquedas(forms.Form):
 
     def clean(self):
         cleaned_data = super(busquedas, self).clean()
-        tb = cleaned_data.get("tipoBusq")
-        c = cleaned_data.get("consulta")
+        tb = cleaned_data.get("criterio")
+        c = cleaned_data.get("dato")
 
         if c and tb:
+
             # Only do something if both fields are valid so far.
-            if tb == '1':
+            if str(tb) == 'BUSCAR POR CUENTA':
                 if not c.isdigit() or len(c) > 8:
                     raise forms.ValidationError("Error, Cuenta ingresada no válida.")
 
-            if tb == '2':
+            if str(tb) == 'BUSCAR POR MEDIDOR':
                 if not c.isdigit() or len(c) >= 11:
                     raise forms.ValidationError("Error, Número de medidor ingresado no válido.")
 
-            if tb == '3':
+            if str(tb) == 'BUSCAR POR NOMBRE':
                 if c.isdigit():
                     raise forms.ValidationError("Error, Nombre de ciente no valido.")
 
-            if tb == '4':
+            if str(tb)[:14] == 'BUSCAR POR GEO':
                 sp = c.split('.')
                 if len(sp) != 5 \
                     or (not sp[0].isdigit()) \

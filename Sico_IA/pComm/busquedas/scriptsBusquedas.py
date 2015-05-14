@@ -126,24 +126,75 @@ def llenarMedidores(sesion):
     return medidores
 
 
+
+
+
 class buscar:
     def __init__(self, conexion):
         self.conn = manejadorDeConexion()
         self.conn.setActiveSession(conexion)
         self.sesion = self.conn.activeSession
 
+    def buscarEnMenu(self, stri, filIni, colIni, filplus, colPlus=79):
+        sesion = self.sesion
+        i=filIni
+        data = str(sesion.autECLPS.GetText(filIni, colIni, len(stri)).strip())
+        while data != stri:
+
+            if i == filplus:
+                if str(sesion.autECLPS.GetText(filplus, colPlus, 1).strip()) == '+':
+                    sesion.autECLPS.SendKeys('[roll up]')
+                    sesion.autECLOIA.WaitForAppAvailable()
+                    sesion.autECLOIA.WaitForInputReady()
+                    i = filIni
+                    data = str(sesion.autECLPS.GetText(i, colIni, len(stri)).strip())
+                else:
+                    return None
+            else:
+                i += 1
+                data = str(sesion.autECLPS.GetText(i, colIni, len(stri)).strip())
+
+        return i
+
+    def regresarInicio(self):
+        sesion = self.sesion
+        titulo = sesion.autECLPS.GetText(5, 1, 11)
+        i=0
+        while titulo != '5=Programas':
+            sesion.autECLPS.SendKeys('[pf12]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+            titulo = sesion.autECLPS.GetText(5, 1, 11)
+            i+=1
+            if i==100:
+                return False
+        return True
 
     #busqueda por cuenta
     def porCuenta(self, cuenta):
         sesion = self.sesion
-        sesion.autECLPS.SendKeys('5', 9, 12)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
-        sesion.autECLPS.SendKeys('1', 9, 3)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
+        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('5', fil, 12)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
+        fil = self.buscarEnMenu('CONSULTA GENERAL DE CLIENTES', 9, 7, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('1', fil, 3)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
         sesion.autECLPS.SendKeys('[eraseeof]', 9, 5)
         sesion.autECLPS.SendKeys(str(cuenta), 9, 5)
         sesion.autECLPS.SendKeys('[enter]')
@@ -187,46 +238,54 @@ class buscar:
 
         medidores = llenarMedidores(sesion)
 
-        titulo = sesion.autECLPS.GetText(5, 1, 11)
-        while titulo != '5=Programas':
-            sesion.autECLPS.SendKeys('[pf12]')
-            sesion.autECLOIA.WaitForAppAvailable()
-            sesion.autECLOIA.WaitForInputReady()
-            titulo = sesion.autECLPS.GetText(5, 1, 11)
+        if self.regresarInicio():
 
-        #print titulo
-
-        data = {
-            'coincidencias':{
-                'titulo': 'Coincidencias',
-                'contenido': coincidencias,
-                'show': True
-            },
-            'cliente':{
-                'titulo': 'Datos de Cliente',
-                'contenido': formC,
-                'show': True
-            },
-            'medidores':{
-                'titulo': 'Medidores del Cliente',
-                'contenido': medidores,
-                'show': True
+            return {
+                'coincidencias':{
+                    'titulo': 'Coincidencias',
+                    'contenido': coincidencias,
+                    'show': True
+                },
+                'cliente':{
+                    'titulo': 'Datos de Cliente',
+                    'contenido': formC,
+                    'show': True
+                },
+                'medidores':{
+                    'titulo': 'Medidores del Cliente',
+                    'contenido': medidores,
+                    'show': True
+                }
             }
-        }
 
-        return data
+        else:
+            return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
 
     #busqueda por medidor
     def porMedidor(self, medidor):
         sesion = self.sesion
-        sesion.autECLPS.SendKeys('5', 9, 12)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
-        sesion.autECLPS.SendKeys('1', 9, 3)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
+        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('5', fil, 12)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
+        fil = self.buscarEnMenu('CONSULTA GENERAL DE CLIENTES', 9, 7, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('1', fil, 3)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
         sesion.autECLPS.SendKeys('[pf9]')
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
@@ -273,45 +332,55 @@ class buscar:
 
         medidores = llenarMedidores(sesion)
 
-        titulo = sesion.autECLPS.GetText(5, 1, 11)
-        while titulo != '5=Programas':
-            sesion.autECLPS.SendKeys('[pf12]')
-            sesion.autECLOIA.WaitForAppAvailable()
-            sesion.autECLOIA.WaitForInputReady()
-            titulo = sesion.autECLPS.GetText(5, 1, 11)
+        if self.regresarInicio():
 
-        data = {
-            'coincidencias':{
-                'titulo': 'Coincidencias',
-                'contenido': coincidencias,
-                'show': True
-            },
-            'cliente':{
-                'titulo': 'Datos de Cliente',
-                'contenido': formC,
-                'show': True
-            },
-            'medidores':{
-                'titulo': 'Medidores del Cliente',
-                'contenido': medidores,
-                'show': True
+            return {
+                'coincidencias':{
+                    'titulo': 'Coincidencias',
+                    'contenido': coincidencias,
+                    'show': True
+                },
+                'cliente':{
+                    'titulo': 'Datos de Cliente',
+                    'contenido': formC,
+                    'show': True
+                },
+                'medidores':{
+                    'titulo': 'Medidores del Cliente',
+                    'contenido': medidores,
+                    'show': True
+                }
             }
-        }
 
-        return data
+        else:
+            return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
 
 
     #busqueda por nombre
     def porNombre(self, nombre):
         sesion = self.sesion
-        sesion.autECLPS.SendKeys('5', 9, 12)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
-        sesion.autECLPS.SendKeys('1', 9, 3)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
+        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('5', fil, 12)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
+        fil = self.buscarEnMenu('CONSULTA GENERAL DE CLIENTES', 9, 7, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('1', fil, 3)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
         sesion.autECLPS.SendKeys('[pf8]')
         sesion.autECLOIA.WaitForAppAvailable()
         sesion.autECLOIA.WaitForInputReady()
@@ -352,45 +421,55 @@ class buscar:
 
         medidores = llenarMedidores(sesion)
 
-        titulo = sesion.autECLPS.GetText(5, 1, 11)
-        while titulo != '5=Programas':
-            sesion.autECLPS.SendKeys('[pf12]')
-            sesion.autECLOIA.WaitForAppAvailable()
-            sesion.autECLOIA.WaitForInputReady()
-            titulo = sesion.autECLPS.GetText(5, 1, 11)
+        if self.regresarInicio():
 
-        data = {
-            'coincidencias':{
-                'titulo': 'Coincidencias',
-                'contenido': coincidencias,
-                'show': True
-            },
-            'cliente':{
-                'titulo': 'Datos de Cliente',
-                'contenido': formC,
-                'show': True
-            },
-            'medidores':{
-                'titulo': 'Medidores del Cliente',
-                'contenido': medidores,
-                'show': True
+            return {
+                'coincidencias':{
+                    'titulo': 'Coincidencias',
+                    'contenido': coincidencias,
+                    'show': True
+                },
+                'cliente':{
+                    'titulo': 'Datos de Cliente',
+                    'contenido': formC,
+                    'show': True
+                },
+                'medidores':{
+                    'titulo': 'Medidores del Cliente',
+                    'contenido': medidores,
+                    'show': True
+                }
             }
-        }
 
-        return data
+        else:
+            return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
 
 
     #busqueda por ruta de lectura
     def porGeocodigo(self, geocodigo):
         sesion = self.sesion
-        sesion.autECLPS.SendKeys('5', 9, 12)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
-        sesion.autECLPS.SendKeys('1', 12, 3)
-        sesion.autECLPS.SendKeys('[enter]')
-        sesion.autECLOIA.WaitForAppAvailable()
-        sesion.autECLOIA.WaitForInputReady()
+        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('5', fil, 12)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
+        fil = self.buscarEnMenu('CONSULTA DE CLIENTES POR SECTOR Y RUTA DE LECTURA', 9, 7, 22)
+        if fil:
+            sesion.autECLPS.SendKeys('1', fil, 3)
+            sesion.autECLPS.SendKeys('[enter]')
+            sesion.autECLOIA.WaitForAppAvailable()
+            sesion.autECLOIA.WaitForInputReady()
+        else:
+            if self.regresarInicio():
+                return 'Error, el usuario de Sistema Comercial no esta habilitado para la opción deseada...'
+            else:
+                return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
         sesion.autECLPS.SendKeys('[pf8]', 9, 5)
         geocodigo = geocodigo.split(".")
         sesion.autECLPS.SendKeys('[up]')
@@ -461,32 +540,28 @@ class buscar:
 
         medidores = llenarMedidores(sesion)
 
-        titulo = sesion.autECLPS.GetText(5, 1, 11)
-        while titulo != '5=Programas':
-            sesion.autECLPS.SendKeys('[pf12]')
-            sesion.autECLOIA.WaitForAppAvailable()
-            sesion.autECLOIA.WaitForInputReady()
-            titulo = sesion.autECLPS.GetText(5, 1, 11)
+        if self.regresarInicio():
 
-        data = {
-            'coincidencias':{
-                'titulo': 'Coincidencias',
-                'contenido': coincidencias,
-                'show': True
-            },
-            'cliente':{
-                'titulo': 'Datos de Cliente',
-                'contenido': formC,
-                'show': True
-            },
-            'medidores':{
-                'titulo': 'Medidores del Cliente',
-                'contenido': medidores,
-                'show': True
+            return {
+                'coincidencias':{
+                    'titulo': 'Coincidencias',
+                    'contenido': coincidencias,
+                    'show': True
+                },
+                'cliente':{
+                    'titulo': 'Datos de Cliente',
+                    'contenido': formC,
+                    'show': True
+                },
+                'medidores':{
+                    'titulo': 'Medidores del Cliente',
+                    'contenido': medidores,
+                    'show': True
+                }
             }
-        }
 
-        return data
+        else:
+            return 'Error, se ha perdido la conexion, cierre sesion e intente nuevamente...'
 
 
     def busquedaDeTipo(self, tipo, data):

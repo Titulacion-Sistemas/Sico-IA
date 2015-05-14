@@ -12,8 +12,8 @@
                         data-ng-click="menuMovil.sidebar=!menuMovil.sidebar"
                         data-ng-show="menuLateral.length>0">
                     <i data-ng-class="{
-                    'glyphicon glyphicon-collapse-down': !menuMovil.sidebar,
-                    'glyphicon glyphicon-collapse-up': menuMovil.sidebar
+                    'glyphicon glyphicon-collapse-down': menuMovil.sidebar,
+                    'glyphicon glyphicon-collapse-up': !menuMovil.sidebar
                     }"></i>
                 </button>
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse"
@@ -111,7 +111,7 @@
             $(document).ready(function(){
                  window.location.assign('#/');
             });
-            angular.module("sico_ia", ['ngRoute', 'ngAnimate'])
+            angular.module("sico_ia", ['ngRoute', 'ngAnimate', 'ngSanitize'])
                     //http://www.aprendiendoando.com/angularjs-clase-13-crear-animaciones
 
             .controller('AppCtrl', ['$scope', function($scope) {
@@ -150,6 +150,14 @@
 
             }])
 
+            .controller('enconstruccion', ['$scope', function($scope){
+
+                $scope.cerrarDlg=function(){
+                      window.location.assign('#/');
+                };
+
+            }])
+
             .controller('error', ['$scope', function($scope){
             }])
 
@@ -158,6 +166,10 @@
 
             .controller('busquedas', ['$scope', '$http', '$templateCache',
             function($scope, $http){
+
+                $scope.iString=function(valu){
+                    return angular.isString(valu);
+                };
 
                 $scope.buscarPost=function(){
                      $scope.buscando=true;
@@ -172,7 +184,7 @@
                          }
                      )
                      .success(function(data) {
-                             console.log(data);
+                             //console.log(data);
                              $scope.valores = data;
                              $scope.buscando=false;
                          }
@@ -252,10 +264,12 @@
                         controller: 'busquedas',
                         templateUrl: '{% url 'busquedas' %}'
                     }).
+
                     when('/salir', {
                         templateUrl: '{% url 'salir' %}'
                     }).
                     when('/enconstruccion', {
+                        controller: 'enconstruccion',
                         templateUrl: '{% url 'enconstruccion' %}'
                     }).
                     otherwise({

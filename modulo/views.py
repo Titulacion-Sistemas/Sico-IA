@@ -45,12 +45,7 @@ def busquedacriterio(request):
             datos = b.busquedaDeTipo(str(form.data['criterio']), str(form.data['dato']))
 
         else:
-            datos = {
-                'coincidencias':{
-                    'titulo': 'Error',
-                    'contenido': form.errors
-                }
-            }
+            datos = str(dict(form.errors)['__all__'])
 
         return HttpResponse(
                 json.dumps(datos),

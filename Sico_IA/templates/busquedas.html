@@ -35,17 +35,22 @@
                 </div>
             </div>
 
-            <div data-ng-show="buscando" class="col-md-8 animate-show">
-                <div class="panel panel-info">
+            <div data-ng-show="buscando || iString(valores)" class="col-md-8 animate-show">
+                <div data-ng-class="{'panel panel-info': !iString(valores),
+                                     'panel panel-danger': iString(valores)}">
                     <div class="panel-heading">
-                        Buscando...
+                        <b data-ng-if="!iString(valores)">Buscando...</b>
+                        <b data-ng-if="iString(valores)">Error</b>
                     </div>
                     <div class="panel-body">
-                        <div style="width: 68px; height: 68px; margin-bottom: 0;"
+                        <div data-ng-show="buscando" style="width: 68px; height: 68px; margin-bottom: 0;"
                              class="alert alert-info center-block animate-show">
                             <div class="loader-inner ball-clip-rotate-multiple center-block">
                                 <div></div><div></div>
                             </div>
+                        </div>
+                        <div data-ng-show="!buscando && iString(valores)">
+                            <p data-ng-bind-html="valores"></p>
                         </div>
                     </div>
                 </div>
