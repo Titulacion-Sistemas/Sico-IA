@@ -27,7 +27,7 @@ def busquedas(request):
         'submodulos': json.dumps(submodulos)
     }
 
-    return render_to_response('busquedas.html', data, context_instance=RequestContext(request))
+    return render_to_response('busquedas/busquedas.html', data, context_instance=RequestContext(request))
 
 
 def busquedacriterio(request):
@@ -52,11 +52,8 @@ def busquedacriterio(request):
                 content_type="application/json; charset=UTF-8"
             )
     else:
-        return render_to_response('busquedas/coincidencias.html', {}, context_instance=RequestContext(request))
+        return None
 
 
-
-
-
-
-
+def cambiosdemedidor(request):
+    return render_to_response('combiosdemedidor/cambiodemedidor.html', {}, context_instance=RequestContext(request))

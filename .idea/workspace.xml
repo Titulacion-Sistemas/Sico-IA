@@ -29,21 +29,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ingreso/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="46" selection-start="1606" selection-end="1621" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2567">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modulo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="53" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1156">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state line="54" column="18" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="935">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,7 +40,7 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="39" selection-start="2139" selection-end="2139" vertical-scroll-proportion="-7.423077" vertical-offset="623" max-vertical-offset="1632">
+            <state line="42" column="70" selection-start="1802" selection-end="1856" vertical-scroll-proportion="-6.5384617" vertical-offset="544" max-vertical-offset="1632">
               <folding />
             </state>
           </provider>
@@ -60,37 +49,54 @@
       <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modulo/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="22" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0" vertical-offset="652" max-vertical-offset="1462">
+            <state line="56" column="22" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1462">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sico_IA/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="74" selection-start="5183" selection-end="5193" vertical-scroll-proportion="-1.882353" vertical-offset="1825" max-vertical-offset="4998">
+            <state line="7" column="12" selection-start="107" selection-end="107" vertical-scroll-proportion="-12.064039" vertical-offset="5017" max-vertical-offset="5423">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="busquedas.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Sico_IA/templates/busquedas.html">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modulo/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="44" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.41062802" vertical-offset="697" max-vertical-offset="3672">
+            <state line="7" column="6" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Sico_IA/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="87" selection-start="1000" selection-end="1016" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cambiodemedidor.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Sico_IA/templates/combiosdemedidor/cambiodemedidor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="48" selection-start="1252" selection-end="1252" vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="731">
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jhonsson.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/jhonsson.css">
+      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Sico_IA/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="23" selection-start="2736" selection-end="2736" vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="3128">
+            <state line="37" column="96" selection-start="1889" selection-end="1969" vertical-scroll-proportion="-2.0769231" vertical-offset="575" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
@@ -99,10 +105,8 @@
       <file leaf-file-name="scriptsBusquedas.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="513" column="98" selection-start="20343" selection-end="20359" vertical-scroll-proportion="0.0" vertical-offset="8544" max-vertical-offset="10013">
-              <folding>
-                <element signature="e#16#63#0" expanded="true" />
-              </folding>
+            <state line="513" column="98" selection-start="20343" selection-end="20359" vertical-scroll-proportion="0.0" vertical-offset="2042" max-vertical-offset="9979">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,9 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Sico_IA/urls.py" />
-        <option value="$PROJECT_DIR$/ingreso/views.py" />
-        <option value="$PROJECT_DIR$/Sico_IA/templates/busquedas/criterio.html" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/busquedas/cliente.html" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/busquedas/medidores.html" />
         <option value="$PROJECT_DIR$/modulo/renderRequest.py" />
@@ -127,12 +128,15 @@
         <option value="$PROJECT_DIR$/static/css/jhonsson.css" />
         <option value="$USER_HOME$/Desktop/SlidePushMenus/index.html" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/enconstruccion.html" />
-        <option value="$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py" />
-        <option value="$PROJECT_DIR$/modulo/views.py" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/busquedas.html" />
-        <option value="$PROJECT_DIR$/Sico_IA/templates/home.html" />
         <option value="$PROJECT_DIR$/Sico_IA/templates/base.html" />
         <option value="$PROJECT_DIR$/modulo/forms.py" />
+        <option value="$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py" />
+        <option value="$PROJECT_DIR$/Sico_IA/templates/combiosdemedidor/cambiodemedidor.html" />
+        <option value="$PROJECT_DIR$/Sico_IA/urls.py" />
+        <option value="$PROJECT_DIR$/modulo/views.py" />
+        <option value="$PROJECT_DIR$/static/js/app/home.js" />
+        <option value="$PROJECT_DIR$/Sico_IA/templates/home.html" />
       </list>
     </option>
   </component>
@@ -168,7 +172,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,24 +240,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico_IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico-IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="modulo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -269,20 +254,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ingreso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico_IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico-IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Sico_IA" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -302,28 +273,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico_IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico-IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sico_IA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="busquedas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,6 +318,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,11 +343,11 @@
       <recent name="E:\Datos\Documents\GitHub\Sico_IA\Sico_IA" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Datos\Documents\GitHub\Sico-IA\Sico_IA\templates\combiosdemedidor" />
+      <recent name="D:\Datos\Documents\GitHub\Sico-IA\Sico_IA\templates" />
+      <recent name="D:\Datos\Documents\GitHub\Sico-IA\Sico_IA\templates\busquedas" />
       <recent name="D:\Datos\Documents\GitHub\Sico-IA\static\js" />
       <recent name="D:\Datos\Documents\GitHub\Sico-IA\Sico_IA" />
-      <recent name="D:\Datos\Documents\GitHub\Sico-IA\Sico_IA\templates\busquedas" />
-      <recent name="E:\Datos\Documents\GitHub\Sico_IA\static\css" />
-      <recent name="E:\Datos\Documents\GitHub\Sico_IA\static\js" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.Sico_IA">
@@ -651,12 +601,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13560607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29575402" sideWeight="0.7839607" order="0" side_tool="false" content_ui="combo" />
@@ -668,7 +619,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -688,67 +638,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="46" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.3753281" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="1" selection-start="929" selection-end="929" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/jhonsson.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="23" selection-start="2736" selection-end="2736" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/enconstruccion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="72" selection-start="533" selection-end="533" vertical-scroll-proportion="0.31598514" vertical-offset="0" max-vertical-offset="538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/cambiosDeMedidor/scriptCambiosDeMedidor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="24" selection-start="11171" selection-end="11171" vertical-scroll-proportion="-31.84" vertical-offset="2961" max-vertical-offset="19380">
-          <folding>
-            <element signature="e#15#60#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../PythonTitulacion-EV/Lib/site-packages/django/forms/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="8" selection-start="4815" selection-end="4815" vertical-scroll-proportion="0.33333334" vertical-offset="1702" max-vertical-offset="9792">
-          <folding />
-        </state>
+        <state line="123" column="8" selection-start="4815" selection-end="4815" vertical-scroll-proportion="0.33333334" vertical-offset="1702" max-vertical-offset="9792" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modulo/renderRequest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="173" selection-end="173" vertical-scroll-proportion="0.27546296" vertical-offset="0" max-vertical-offset="731">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modulo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="109" selection-end="109" vertical-scroll-proportion="0.2361111" vertical-offset="0" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="513" column="98" selection-start="20343" selection-end="20359" vertical-scroll-proportion="0.0" vertical-offset="8544" max-vertical-offset="10013">
-          <folding>
-            <element signature="e#16#63#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="8" column="8" selection-start="173" selection-end="173" vertical-scroll-proportion="0.27546296" vertical-offset="0" max-vertical-offset="731" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ingreso/views.py">
@@ -758,27 +655,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulo/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="53" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1156">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/angular-route.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="419">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="419" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="513" column="98" selection-start="20343" selection-end="20359" vertical-scroll-proportion="0.0" vertical-offset="8544" max-vertical-offset="10013">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/busquedas/busquedas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="39" selection-start="2139" selection-end="2139" vertical-scroll-proportion="-7.423077" vertical-offset="623" max-vertical-offset="1632">
+        <state line="210" column="6" selection-start="0" selection-end="10933" vertical-scroll-proportion="6.8" vertical-offset="0" max-vertical-offset="3672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/jhonsson.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="23" selection-start="2736" selection-end="2736" vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="3128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="96" selection-start="1889" selection-end="1969" vertical-scroll-proportion="-2.0769231" vertical-offset="575" max-vertical-offset="1292">
           <folding />
         </state>
       </provider>
@@ -790,20 +695,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/combiosdemedidor/cambiodemedidor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="74" selection-start="5183" selection-end="5193" vertical-scroll-proportion="-1.882353" vertical-offset="1825" max-vertical-offset="4998">
+        <state line="24" column="48" selection-start="1252" selection-end="1252" vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="731">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="18" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="350" max-vertical-offset="935">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/busquedas.html">
+    <entry file="file://$PROJECT_DIR$/Sico_IA/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="44" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.41062802" vertical-offset="697" max-vertical-offset="3672">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="24" column="87" selection-start="1000" selection-end="1016" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulo/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="6" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="70" selection-start="1802" selection-end="1856" vertical-scroll-proportion="-6.5384617" vertical-offset="544" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/app/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="8" selection-start="49" selection-end="5263" vertical-scroll-proportion="0.8032407" vertical-offset="3070" max-vertical-offset="3570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sico_IA/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="12" selection-start="107" selection-end="107" vertical-scroll-proportion="-12.064039" vertical-offset="5017" max-vertical-offset="5423">
+          <folding />
         </state>
       </provider>
     </entry>

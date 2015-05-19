@@ -18,7 +18,10 @@ urlpatterns = patterns('',
     url(r'^principal/$', 'ingreso.views.principal', name='principal'),
 
     url(r'^enconstruccion/$', 'modulo.views.enconstruccion', name='enconstruccion'),
+
     url(r'^busquedas/$', 'modulo.views.busquedas', name='busquedas'),
     url(r'^busquedacriterio/$', 'modulo.views.busquedacriterio', name='busquedacriterio'),
+
+    url(r'^cambiosdemedidor/$', 'modulo.views.cambiosdemedidor', name='cambiosdemedidor'),
 
 )

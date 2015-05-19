@@ -1,0 +1,38 @@
+<div id="main">
+    <div class="row" style="margin-top: 15px" >
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>Cambiar Medidor</h4>
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="form-group" id="verificarForm" name="verificarForm" method="post"
+                          data-ng-submit="verificarPost()"
+                    >
+
+                        <div class="form-group">
+                            <input type="number" name="input" data-ng-model="cuenta"
+                             min="999" max="9999999" required />
+                        </div>
+
+                        <div class="form-group alert alert-danger panel-danger text-center animate-show">
+                            <span class="text-danger animate-show" data-ng-show="verificarForm.input.$error.required">
+                                ¡Valor Requerido!</span>
+                            <span class="text-danger animate-show" data-ng-show="verificarForm.input.$error.number">
+                                ¡Cuenta no válida!</span>
+                        </div>
+
+                        <div class="form-group">
+                            <button
+                                    type="submit"
+                                    class="btn btn-primary btn-lg btn-block raised round"
+                                    >
+                                 <span class="glyphicon glyphicon-book"></span> Verificar Solicitudes en proceso
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
