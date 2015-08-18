@@ -2,7 +2,9 @@
 
 from django.shortcuts import render_to_response
 import pythoncom
+import time
 from Sico_IA.pComm.conexion import manejadorDeConexion
+from ingreso.models import turno
 
 
 lectura = '0'
@@ -173,7 +175,9 @@ class buscar:
     #busqueda por cuenta
     def porCuenta(self, cuenta):
         sesion = self.sesion
-        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        
+        #fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
+        fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
         if fil:
             sesion.autECLPS.SendKeys('5', fil, 12)
             sesion.autECLPS.SendKeys('[enter]')
@@ -264,7 +268,9 @@ class buscar:
     #busqueda por medidor
     def porMedidor(self, medidor):
         sesion = self.sesion
-        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        
+        #fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
+        fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
         if fil:
             sesion.autECLPS.SendKeys('5', fil, 12)
             sesion.autECLPS.SendKeys('[enter]')
@@ -359,7 +365,9 @@ class buscar:
     #busqueda por nombre
     def porNombre(self, nombre):
         sesion = self.sesion
-        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        
+        #fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
+        fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
         if fil:
             sesion.autECLPS.SendKeys('5', fil, 12)
             sesion.autECLPS.SendKeys('[enter]')
@@ -448,7 +456,9 @@ class buscar:
     #busqueda por ruta de lectura
     def porGeocodigo(self, geocodigo):
         sesion = self.sesion
-        fil = self.buscarEnMenu('ATENCION DE SOLICITUDES', 9, 16, 22)
+        
+        #fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
+        fil = self.buscarEnMenu('CONSULTA DE CLIENTES', 9, 16, 22)
         if fil:
             sesion.autECLPS.SendKeys('5', fil, 12)
             sesion.autECLPS.SendKeys('[enter]')
@@ -565,14 +575,29 @@ class buscar:
 
 
     def busquedaDeTipo(self, tipo, data):
+
+        t = turno(t=turno.objects.all().count())
+        t.save()
+
+        contador = 0
+
+        while turno.objects.all().first() != t and contador < 50:
+            time.sleep(1)
+            contador += 1
+
+        if contador >= 50:
+            t.delete()
+            return "Error busqueda en espera"
+
         operaciones = {
             'porCuenta': self.porCuenta,
             'porMedidor': self.porMedidor,
             'porNombre': self.porNombre,
             'porGeocodigo': self.porGeocodigo
         }
-
-        return operaciones[str(tipo)](data)
+        result = operaciones[str(tipo)](data)
+        t.delete()
+        return result
 
 
     def renderBusqueda(self, tipo, data):

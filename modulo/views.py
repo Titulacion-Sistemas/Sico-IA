@@ -55,5 +55,34 @@ def busquedacriterio(request):
         return None
 
 
+def busquedaAndroid(request, tipo, dato):
+    if request.method == 'GET':
+
+        jsn = JSONMiddleware()
+        jsn.process_request(request)
+
+        print request.GET
+
+        #form = busq(data=QueryDict(request.POST['formulario']))
+        #
+        #if form.is_valid():
+        #
+        tipo = str(tipo).replace("_", " ")
+        tipo = tipo.strip()
+        b = buscar('A')
+        datos = b.busquedaDeTipo(str(tipo), str(dato))
+        #
+        #else:
+
+        #    datos = str(dict(form.errors)['__all__'])
+
+        return HttpResponse(
+                json.dumps(datos),
+                content_type="application/json; charset=UTF-8"
+            )
+    else:
+        return None
+
+
 def cambiosdemedidor(request):
     return render_to_response('combiosdemedidor/cambiodemedidor.html', {}, context_instance=RequestContext(request))

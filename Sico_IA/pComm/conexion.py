@@ -78,33 +78,54 @@ class manejadorDeConexion:
         else:
             self.setActiveSession(self.getAvailableConnection())
 
-        segundos = 40
+        self.segundos = 40
 
-        while not self.activeSession.Ready and segundos >= 0:
+        while not self.activeSession.Ready and self.segundos >= 0:
             print "la session no esta lista aun ..."
             #return False
             sleep(1)
-            segundos -= 1
+            self.segundos -= 1
 
-        if segundos >= 0:
+        if self.segundos >= 0:
             if self.activeSession.autECLOIA.WaitForAppAvailable(5000):
                 if self.activeSession.autECLOIA.WaitForInputReady(5000):
                     print self.getText(22, 50, length=8)
                     print self.getText(21, 50, length=12)
 
+            #if self.activeSession.autECLPS.WaitForString('Usuario', 6, 17, 10000):
+            #    if self.sendKeys(1, usuario, row=6, col=53):
+            #        if self.sendKeys(1, contrasenia, row=7, col=53):
+            #            titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
+            #            print 'Intentando acceder a Pantalla Principal...'
+            #            while titulo != '5=Programas' \
+            #                and self.segundos >= 0 \
+            #                and self.getText(24, 1, length=1) == " ":
+            #                self.activeSession.autECLPS.SendKeys('[enter]')
+            #                self.activeSession.autECLOIA.WaitForAppAvailable()
+            #                self.activeSession.autECLOIA.WaitForInputReady()
+            #                self.segundos -= 1
+            #                titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
+            #
+            #            if titulo == '5=Programas':
+            #                self.estado = True
+            #                return self.estado
+            #            elif self.getText(24, 1, length=1) != " ":
+            #                self.estado = (self.getText(24, 1, length=75)).encode('utf-8').strip()
+            #            elif self.getText(1, 25, length=16) == "INICIO DE SESION":
+            #                self.estado = "Usuario incorrecto..."
+
             if self.activeSession.autECLPS.WaitForString('USUARIO', 21, 50, 10000):
                 if self.sendKeys(1, usuario, row=21, col=63):
                     if self.sendKeys(1, contrasenia, row=22, col=63):
-
                         titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
                         print 'Intentando acceder a Pantalla Principal...'
                         while titulo != '5=Programas' \
-                            and segundos >= 0 \
+                            and self.segundos >= 0 \
                             and self.getText(24, 1, length=1) == " ":
                             self.activeSession.autECLPS.SendKeys('[enter]')
                             self.activeSession.autECLOIA.WaitForAppAvailable()
                             self.activeSession.autECLOIA.WaitForInputReady()
-                            segundos -= 1
+                            self.segundos -= 1
                             titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
 
                         if titulo == '5=Programas':
@@ -122,8 +143,8 @@ class manejadorDeConexion:
 
     def openProgram(self):
         print "Abriendo el Programa, Sesion: {0}".format(self.activeConnection)
-        self.PCommConnMgr.StartConnection(
-            "PROFILE=.\Sico_IA\pComm\sico\CNEL.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
+        #self.PCommConnMgr.StartConnection("PROFILE=.\Sico_IA\pComm\sico\CNEL.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
+        self.PCommConnMgr.StartConnection("PROFILE=.\Sico_IA\pComm\sico\CNELOR.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
 
 
     def closeProgram(self, connection, directo=False):
@@ -138,3 +159,4 @@ class manejadorDeConexion:
             self.PCommConnMgr.StopConnection(connection, "saveprofile=no")
         except:
             print "No se ha podido cerrar la sesion: {0}".format(connection)
+

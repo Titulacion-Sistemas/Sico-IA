@@ -4,7 +4,7 @@ Version=9
 [CT]
 trace=Y
 [Telnet5250]
-HostName=190.214.22.250
+HostName=190.214.22.246
 AssociatedPrinterStartMinimized=N
 AssociatedPrinterClose=N
 AssociatedPrinterTimeout=0
@@ -24,7 +24,7 @@ Language=Latin-America(Spanish)
 IBMDefaultKeyboard=N
 DefaultKeyboard=C:\Users\Jhonsson\AppData\Roaming\IBM\Client Access\Emulator\private\AS400.KMP
 [LastExitView]
-A=3 694 8 656 392 3 8 10 400 0 IBM3270— 284
+A=4 575 53 656 306 B 12 20 400 0 IBM3270— 284
 [Window]
 ViewFlags=CE00
 RuleLinePos=0 0

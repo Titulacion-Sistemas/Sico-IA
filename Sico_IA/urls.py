@@ -20,8 +20,11 @@ urlpatterns = patterns('',
     url(r'^enconstruccion/$', 'modulo.views.enconstruccion', name='enconstruccion'),
 
     url(r'^busquedas/$', 'modulo.views.busquedas', name='busquedas'),
+
     url(r'^busquedacriterio/$', 'modulo.views.busquedacriterio', name='busquedacriterio'),
 
     url(r'^cambiosdemedidor/$', 'modulo.views.cambiosdemedidor', name='cambiosdemedidor'),
+
+    url(r'^bandroid/([^/]+)/([^/]+)/$', 'modulo.views.busquedaAndroid', name='bandroid'),
 
 )

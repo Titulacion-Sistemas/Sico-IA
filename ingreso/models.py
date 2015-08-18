@@ -14,3 +14,9 @@ class usuario(models.Model):
     class Meta:
         verbose_name = 'Usuario de Sico'
         verbose_name_plural = 'Usuarios de Sico'
+
+class turno(models.Model):
+    t = models.SmallIntegerField(verbose_name='Turno')
+
+    def __unicode__(self):
+        return str(self.t)
