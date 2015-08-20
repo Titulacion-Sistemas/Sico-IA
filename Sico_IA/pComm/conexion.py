@@ -93,27 +93,6 @@ class manejadorDeConexion:
                     print self.getText(21, 50, length=12)
 
             #if self.activeSession.autECLPS.WaitForString('Usuario', 6, 17, 10000):
-            #    if self.sendKeys(1, usuario, row=6, col=53):
-            #        if self.sendKeys(1, contrasenia, row=7, col=53):
-            #            titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
-            #            print 'Intentando acceder a Pantalla Principal...'
-            #            while titulo != '5=Programas' \
-            #                and self.segundos >= 0 \
-            #                and self.getText(24, 1, length=1) == " ":
-            #                self.activeSession.autECLPS.SendKeys('[enter]')
-            #                self.activeSession.autECLOIA.WaitForAppAvailable()
-            #                self.activeSession.autECLOIA.WaitForInputReady()
-            #                self.segundos -= 1
-            #                titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
-            #
-            #            if titulo == '5=Programas':
-            #                self.estado = True
-            #                return self.estado
-            #            elif self.getText(24, 1, length=1) != " ":
-            #                self.estado = (self.getText(24, 1, length=75)).encode('utf-8').strip()
-            #            elif self.getText(1, 25, length=16) == "INICIO DE SESION":
-            #                self.estado = "Usuario incorrecto..."
-
             if self.activeSession.autECLPS.WaitForString('USUARIO', 21, 50, 10000):
                 if self.sendKeys(1, usuario, row=21, col=63):
                     if self.sendKeys(1, contrasenia, row=22, col=63):

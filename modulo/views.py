@@ -67,9 +67,11 @@ def busquedaAndroid(request, tipo, dato):
         #
         #if form.is_valid():
         #
-        tipo = str(tipo).replace("_", " ")
-        tipo = tipo.strip()
+        dato = str(dato).replace("_", " ")
+        dato = dato.strip()
         b = buscar('A')
+        print str(dato)
+        print str(tipo)
         datos = b.busquedaDeTipo(str(tipo), str(dato))
         #
         #else:
