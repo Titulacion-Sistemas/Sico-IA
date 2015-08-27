@@ -28,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modulo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="20" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.0" vertical-offset="1241" max-vertical-offset="1615">
+            <state line="13" column="98" selection-start="418" selection-end="545" vertical-scroll-proportion="0.09798271" vertical-offset="0" max-vertical-offset="1462">
               <folding />
             </state>
           </provider>
@@ -40,16 +40,16 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="58" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="595">
+            <state line="23" column="63" selection-start="870" selection-end="901" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conexion.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="conexion.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/conexion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="8" selection-start="4925" selection-end="4925" vertical-scroll-proportion="0.4976415" vertical-offset="1914" max-vertical-offset="2499">
+            <state line="125" column="8" selection-start="4925" selection-end="4925" vertical-scroll-proportion="0.0" vertical-offset="1780" max-vertical-offset="2499">
               <folding />
             </state>
           </provider>
@@ -123,8 +123,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -336,7 +336,7 @@
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PracticasDjango/CrearPdfs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Sisfaconp" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
@@ -614,7 +614,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -622,7 +622,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13560607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21742313" sideWeight="0.7364975" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22972973" sideWeight="0.7364975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22422259" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -699,23 +699,9 @@
         <state line="7" column="12" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="5423" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulo/forms.py">
+    <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="22" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0" vertical-offset="652" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="58" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ingreso/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="28" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+        <state line="366" column="28" selection-start="13751" selection-end="13751" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="10455">
           <folding />
         </state>
       </provider>
@@ -727,23 +713,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulo/views.py">
+    <entry file="file://$PROJECT_DIR$/ingreso/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="20" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1462">
+        <state line="1" column="28" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/busquedas/scriptsBusquedas.py">
+    <entry file="file://$PROJECT_DIR$/Sico_IA/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="28" selection-start="13751" selection-end="13751" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="10455">
+        <state line="23" column="63" selection-start="870" selection-end="901" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulo/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="22" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0" vertical-offset="652" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sico_IA/pComm/conexion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="8" selection-start="4925" selection-end="4925" vertical-scroll-proportion="0.4976415" vertical-offset="1914" max-vertical-offset="2499">
+        <state line="125" column="8" selection-start="4925" selection-end="4925" vertical-scroll-proportion="0.0" vertical-offset="1780" max-vertical-offset="2499">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="98" selection-start="418" selection-end="545" vertical-scroll-proportion="0.09798271" vertical-offset="0" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>
