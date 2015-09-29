@@ -92,8 +92,8 @@ class manejadorDeConexion:
                     print self.getText(22, 50, length=8)
                     print self.getText(21, 50, length=12)
 
-            #if self.activeSession.autECLPS.WaitForString('Usuario', 6, 17, 10000):
-            if self.activeSession.autECLPS.WaitForString('USUARIO', 21, 50, 10000):
+            if self.activeSession.autECLPS.WaitForString('Usuario', 6, 17, 10000):
+            #if self.activeSession.autECLPS.WaitForString('USUARIO', 21, 50, 10000):
                 if self.sendKeys(1, usuario, row=21, col=63):
                     if self.sendKeys(1, contrasenia, row=22, col=63):
                         titulo = self.activeSession.autECLPS.GetText(5, 1, 11)
@@ -122,8 +122,8 @@ class manejadorDeConexion:
 
     def openProgram(self):
         print "Abriendo el Programa, Sesion: {0}".format(self.activeConnection)
-        #self.PCommConnMgr.StartConnection("PROFILE=.\Sico_IA\pComm\sico\CNEL.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
-        self.PCommConnMgr.StartConnection("PROFILE=.\Sico_IA\pComm\sico\CNELOR.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
+        self.PCommConnMgr.StartConnection("PROFILE=.\Sico_IA\pComm\sico\CNEL.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
+        #self.PCommConnMgr.StartConnection("PROFILE=.\Sico_IA\pComm\sico\CNELOR.WS CONNNAME={0} WINSTATE=MIN".format(self.activeConnection))
 
 
     def closeProgram(self, connection, directo=False):

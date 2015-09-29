@@ -27,4 +27,7 @@ urlpatterns = patterns('',
 
     url(r'^bandroid/([^/]+)/([^/]+)/$', 'modulo.views.busquedaAndroid', name='bandroid'),
 
+     url(r'^geoandroid/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$',
+         'modulo.views.geoAndroid', name='geoandroid'),
+
 )

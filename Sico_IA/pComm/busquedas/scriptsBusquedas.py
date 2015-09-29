@@ -576,19 +576,6 @@ class buscar:
 
     def busquedaDeTipo(self, tipo, data):
 
-        t = turno(t=turno.objects.all().count())
-        t.save()
-
-        contador = 0
-
-        while turno.objects.all().first() != t and contador < 50:
-            time.sleep(1)
-            contador += 1
-
-        if contador >= 50:
-            t.delete()
-            return "Error busqueda en espera"
-
         operaciones = {
             'porCuenta': self.porCuenta,
             'porMedidor': self.porMedidor,
@@ -596,7 +583,7 @@ class buscar:
             'porGeocodigo': self.porGeocodigo
         }
         result = operaciones[str(tipo)](data)
-        t.delete()
+
         return result
 
 
